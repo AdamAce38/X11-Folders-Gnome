@@ -1,0 +1,1267 @@
+<?xml version="1.0" ?>
+<moduleset>
+  <repository href="http://freedesktop.org/" name="freedesktop.org" type="tarball"/>
+  <repository href="https://download.gnome.org/sources/" name="gnome.org" type="tarball"/>
+  <repository href="http://www.kernel.org" name="kernel.org" type="tarball"/>
+  <include href="gnome-suites-core-deps-3.23.92.modules"/>
+  <autotools id="adwaita-icon-theme">
+    <branch hash="sha256:1ca3ce1428237b25dbf02f638e06452583b2f419f11f3ba9543e224eb2853af7" module="adwaita-icon-theme/3.23/adwaita-icon-theme-3.23.91.1.tar.xz" repo="https://download.gnome.org/sources/" size="20360688" version="3.23.91.1"/>
+    <dependencies>
+      <dep package="hicolor-icon-theme"/>
+      <dep package="gnome-common"/>
+      <dep package="gtk+-3"/>
+      <dep package="librsvg"/>
+    </dependencies>
+  </autotools>
+  <autotools id="at-spi2-atk">
+    <branch hash="sha256:e8bdedbeb873eb229eb08c88e11d07713ec25ae175251648ad1a9da6c21113c1" module="at-spi2-atk/2.22/at-spi2-atk-2.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="306148" version="2.22.0"/>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="glib"/>
+      <dep package="atk"/>
+      <dep package="libxml2"/>
+      <dep package="at-spi2-core"/>
+    </dependencies>
+  </autotools>
+  <autotools id="at-spi2-core">
+    <branch hash="sha256:ec1bc1d1d9234aa21cb48630c7a7ebaeb8e3c12a97a898eba2820be4d634366e" module="at-spi2-core/2.23/at-spi2-core-2.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="452072" version="2.23.92"/>
+    <if condition-unset="x11">
+      <autogenargs value="--disable-x11"/>
+    </if>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="glib"/>
+      <if condition-set="x11">
+        <dep package="libXtst"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="dconf">
+    <branch hash="sha256:8683292eb31a3fae31e561f0a4220d8569b0f6d882e9958b68373f9043d658c9" module="dconf/0.26/dconf-0.26.0.tar.xz" repo="https://download.gnome.org/sources/" size="219688" version="0.26.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="dbus"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-systemdsystemunitdir=no --with-log-dir=${prefix}/var/log/gdm" id="gdm">
+    <branch hash="sha256:7c207af30be476daf6ab0219c333ca59f52c61e359e31187c49c54cf7b7b2971" module="gdm/3.23/gdm-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1111560" version="3.23.92"/>
+    <if condition-unset="linux">
+      <autogenargs value="--without-plymouth"/>
+    </if>
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="dbus-glib"/>
+      <dep package="fontconfig"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="nss"/>
+      <dep package="pam"/>
+      <if condition-set="linux">
+        <dep package="plymouth"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="upower"/>
+      <dep package="yelp-tools"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests" id="glib-networking">
+    <branch hash="sha256:3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee" module="glib-networking/2.50/glib-networking-2.50.0.tar.xz" repo="https://download.gnome.org/sources/" size="435380" version="2.50.0"/>
+    <if condition-set="freebsd">
+      <autogenargs value="--with-ca-certificates=/usr/local/share/certs/ca-root-nss.crt"/>
+    </if>
+    <if condition-set="macos">
+      <autogenargs value="--without-pkcs11 --without-ca-certificates"/>
+    </if>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libproxy"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gnutls"/>
+      <if condition-unset="macos">
+        <dep package="p11-kit"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-backgrounds">
+    <branch hash="sha256:0507d7619b00a0c3030fe86979ff8f4cb87dab117c467d00381ad442530906f5" module="gnome-backgrounds/3.23/gnome-backgrounds-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="15222660" version="3.23.91"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-bluetooth">
+    <branch hash="sha256:ea9050b5f3b94ef279febae4cb789c2500a25344c784f650fe7f932fcd6798fe" module="gnome-bluetooth/3.20/gnome-bluetooth-3.20.1.tar.xz" repo="https://download.gnome.org/sources/" size="615880" version="3.20.1"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="gtk-doc"/>
+      <dep package="glib"/>
+      <dep package="libcanberra-gtk3"/>
+      <dep package="libnotify"/>
+      <dep package="libudev"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-color-manager">
+    <branch hash="sha256:5d76e7b4e367bc5c9fb9add8bbae487956ea7d31f060a23c7835b3cd10614f16" module="gnome-color-manager/3.23/gnome-color-manager-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="2857064" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="colord-gtk"/>
+      <dep package="exiv2"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="lcms2"/>
+      <dep package="libcanberra"/>
+      <dep package="libexif"/>
+      <dep package="libtiff"/>
+      <dep package="vte"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-control-center" supports-non-srcdir-builds="no">
+    <branch hash="sha256:419d768cd56ecc7ddcffefe6bee887619a039e542f0b3580ef3512f93cfead81" module="gnome-control-center/3.23/gnome-control-center-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="7333504" version="3.23.92"/>
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="clutter-gtk"/>
+      <dep package="colord"/>
+      <dep package="colord-gtk"/>
+      <dep package="fontconfig"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gnome-settings-daemon"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="ibus"/>
+      <dep package="intltool"/>
+      <dep package="iso-codes"/>
+      <dep package="krb5"/>
+      <dep package="libcanberra-gtk3"/>
+      <dep package="libgtop"/>
+      <dep package="libpwquality"/>
+      <dep package="libxml2"/>
+      <dep package="polkit-gobject"/>
+      <dep package="pulseaudio"/>
+      <dep package="smbclient"/>
+      <dep package="sound-theme-freedesktop"/>
+      <dep package="upower"/>
+      <dep package="grilo"/>
+      <if condition-set="linux">
+        <dep package="gnome-bluetooth"/>
+        <dep package="network-manager-applet"/>
+        <dep package="libwacom"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="cups"/>
+      <dep package="cheese"/>
+      <dep package="gnome-color-manager"/>
+      <dep package="gstreamer"/>
+      <dep package="ibus-libpinyin"/>
+      <dep package="ibus-anthy"/>
+      <dep package="ibus-hangul"/>
+      <dep package="libgnomekbd"/>
+      <if condition-set="linux">
+        <dep package="ModemManager"/>
+        <dep package="NetworkManager"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--with-gnome-distributor=JHBuild" id="gnome-desktop">
+    <branch hash="sha256:f3d6ca87ae9298c9fb2d9f91979e7bb569273b562d66e100278ceec44db5a2f2" module="gnome-desktop/3.23/gnome-desktop-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1063244" version="3.23.92"/>
+    <if condition-unset="udev">
+      <autogenargs value="--disable-udev"/>
+    </if>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="libxkbfile"/>
+      <dep package="libXrandr"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="iso-codes"/>
+      <dep package="yelp-tools"/>
+      <dep package="xkeyboard-config"/>
+      <if condition-set="udev">
+        <dep package="libudev"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-getting-started-docs">
+    <branch hash="sha256:22b11fb4f6fd9f6d595dc01d5989fb1652c9a63732a4d1c997f3f5f82da75722" module="gnome-getting-started-docs/3.22/gnome-getting-started-docs-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="119100024" version="3.22.0"/>
+    <dependencies>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-keyring">
+    <branch hash="sha256:bc17cecd748a0e46e302171d11c3ae3d76bba5258c441fabec3786f418e7ec99" module="gnome-keyring/3.20/gnome-keyring-3.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="1215324" version="3.20.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="dbus"/>
+      <dep package="gcr"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libgcrypt"/>
+      <dep package="libtasn1"/>
+      <dep package="p11-kit"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-menus">
+    <branch hash="sha256:7c446eb8ff381df52b8ba04e5886497595e84d1bc46caf7af764d894736c654e" module="gnome-menus/3.13/gnome-menus-3.13.3.tar.xz" repo="https://download.gnome.org/sources/" size="404664" version="3.13.3"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="gnome-common"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-session">
+    <branch hash="sha256:c48c0ee40808e4a00a8237ed8e330f1013c3f0cc3b72b874f3cef7a3aec08340" module="gnome-session/3.23/gnome-session-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="779508" version="3.23.92"/>
+    <dependencies>
+      <dep package="egl"/>
+      <dep package="intltool"/>
+      <dep package="gl"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-desktop"/>
+      <dep package="json-glib"/>
+      <dep package="upower"/>
+      <dep package="libXcomposite"/>
+      <dep package="mesa-libGLES"/>
+      <dep package="sm"/>
+      <dep package="xtrans"/>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-settings-daemon">
+    <branch hash="sha256:fa83e36fc05c2e6345efc224ead4ef4e4b1f10acdd429c349b7d7162f9b9e88a" module="gnome-settings-daemon/3.23/gnome-settings-daemon-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1620620" version="3.23.92"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-rfkill --disable-gudev --disable-network-manager"/>
+    </if>
+    <dependencies>
+      <dep package="colord"/>
+      <dep package="geoclue"/>
+      <dep package="geocode-glib"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra-gtk3"/>
+      <dep package="libgweather"/>
+      <dep package="libnotify"/>
+      <dep package="PackageKit"/>
+      <dep package="polkit-gobject"/>
+      <dep package="pulseaudio"/>
+      <dep package="upower"/>
+      <dep package="ibus"/>
+      <dep package="cups"/>
+      <if condition-set="linux">
+        <dep package="librsvg"/>
+        <dep package="libwacom"/>
+        <dep package="xorg-wacom"/>
+        <dep package="gudev"/>
+        <dep package="NetworkManager"/>
+      </if>
+    </dependencies>
+    <suggests/>
+  </autotools>
+  <autotools id="gnome-shell">
+    <branch hash="sha256:7ddd8c3c23e10cd9889fa9e379c7aeecbface63803cf606b67794a0e8ca101f4" module="gnome-shell/3.23/gnome-shell-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1964748" version="3.23.92"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-networkmanager"/>
+    </if>
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="caribou"/>
+      <dep package="dconf"/>
+      <dep package="evolution-data-server"/>
+      <dep package="gdm"/>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="adwaita-icon-theme"/>
+      <dep package="gnome-settings-daemon"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="libcroco"/>
+      <dep package="libsoup"/>
+      <dep package="mutter"/>
+      <dep package="polkit-agent"/>
+      <dep package="pulseaudio"/>
+      <dep package="startup-notification"/>
+      <dep package="telepathy-glib"/>
+      <dep package="telepathy-logger"/>
+      <dep package="upower"/>
+      <dep package="gcr"/>
+      <if condition-set="linux">
+        <dep package="gnome-bluetooth"/>
+        <dep package="NetworkManager"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="libgnomekbd"/>
+    </suggests>
+    <after>
+      <dep package="librsvg"/>
+    </after>
+  </autotools>
+  <autotools autogenargs="--enable-extensions=classic-mode" id="gnome-shell-extensions">
+    <branch hash="sha256:3059cd9723f22b4c17eeaa5a27f6ac18b3ab01032cbdc026c1c016594d58fd66" module="gnome-shell-extensions/3.23/gnome-shell-extensions-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="342716" version="3.23.92"/>
+    <dependencies>
+      <dep package="gnome-shell"/>
+      <dep package="gnome-menus"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-gtk2-engine" id="gnome-themes-standard">
+    <branch hash="sha256:b34516cd59b873c187c1897c25bac3b9ce2d30a472f1fd7ae9d7105d93e17da5" module="gnome-themes-standard/3.22/gnome-themes-standard-3.22.2.tar.xz" repo="https://download.gnome.org/sources/" size="2900572" version="3.22.2"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="cantarell-fonts"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-user-docs">
+    <branch hash="sha256:7467825a1c56ae2522fe9e36622a84b8887c731bb5f24cecfbf49acc66f6e3fc" module="gnome-user-docs/3.22/gnome-user-docs-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="14148700" version="3.22.0"/>
+    <dependencies>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-user-share">
+    <branch hash="sha256:3092fa7ad137531e35484195dde4ecbbc75a8a3d9b8209aef4c852717cf4bbf1" module="gnome-user-share/3.18/gnome-user-share-3.18.3.tar.xz" repo="https://download.gnome.org/sources/" size="347528" version="3.18.3"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-bluetooth"/>
+    </if>
+    <dependencies>
+      <dep package="avahi"/>
+      <dep package="gtk+-3"/>
+      <dep package="dbus-glib"/>
+      <dep package="libcanberra"/>
+      <dep package="libnotify"/>
+      <dep package="nautilus"/>
+      <if condition-set="linux">
+        <dep package="gnome-bluetooth"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-introspection=yes" id="gsettings-desktop-schemas">
+    <branch hash="sha256:bed8a14286f887cd0ce88b9f23e4d8aa3adf78cf6808bda873545e50c5e925a5" module="gsettings-desktop-schemas/3.23/gsettings-desktop-schemas-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="613416" version="3.23.90"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gnome-common"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gvfs">
+    <branch hash="sha256:87388291bdcd6e6b810c9d35297e8ff7eedc82dfaa32cfc6fa413e5161d999b4" module="gvfs/1.31/gvfs-1.31.92.tar.xz" repo="https://download.gnome.org/sources/" size="1816092" version="1.31.92"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-admin"/>
+    </if>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="dbus"/>
+      <dep package="libcap"/>
+      <dep package="libgcrypt"/>
+      <dep package="libsoup"/>
+      <dep package="gcr"/>
+      <if condition-set="linux">
+        <dep package="udisks"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="libgphoto2"/>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools id="mousetweaks">
+    <branch hash="sha256:c0db478ccb390665e3201e9d1ce08b1c6573a697b797c9e828debb94b1ae3b97" module="mousetweaks/3.12/mousetweaks-3.12.0.tar.xz" repo="https://download.gnome.org/sources/" size="287236" version="3.12.0"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="intltool"/>
+      <dep package="libXcursor"/>
+      <dep package="libXfixes"/>
+      <dep package="libXtst"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-compile-warnings=maximum --enable-installed-tests" id="mutter">
+    <branch hash="sha256:81b3acf59d0f92dd703412b7ffd9bd8613466525d80b42b29627dd2e8b332694" module="mutter/3.23/mutter-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="3575308" version="3.23.92"/>
+    <if condition-set="x11">
+      <autogenargs value="--enable-xlib-egl-platform"/>
+    </if>
+    <if condition-set="wayland">
+      <autogenargs value="--enable-wayland-egl-platform --enable-wayland-egl-server --enable-kms-egl-platform"/>
+    </if>
+    <if condition-unset="wayland">
+      <autogenargs value="--disable-wayland-egl-server"/>
+    </if>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="egl"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gtk+-3"/>
+      <dep package="gtk-doc"/>
+      <dep package="json-glib"/>
+      <dep package="libcanberra"/>
+      <dep package="libX11"/>
+      <dep package="libXcomposite"/>
+      <dep package="libXcursor"/>
+      <dep package="libXdamage"/>
+      <dep package="libXext"/>
+      <dep package="libXfixes"/>
+      <dep package="libXi"/>
+      <dep package="libXinerama"/>
+      <dep package="libXrandr"/>
+      <dep package="libXrender"/>
+      <dep package="libxkbcommon"/>
+      <dep package="libxkbfile"/>
+      <dep package="pango"/>
+      <dep package="sm"/>
+      <dep package="startup-notification"/>
+      <dep package="upower"/>
+      <dep package="xcb-randr"/>
+      <dep package="xcb-res"/>
+      <dep package="xkeyboard-config"/>
+      <dep package="zenity"/>
+      <if condition-set="wayland">
+        <dep package="gbm"/>
+        <dep package="libdrm"/>
+        <dep package="libsystemd"/>
+        <dep package="wayland"/>
+        <dep package="xwayland"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-more-warnings=no --disable-migration --without-bluetooth --without-team" id="network-manager-applet">
+    <branch hash="sha256:10a6fcfe8c6206cf18ec78a522a716b5ec9d0b7ca1e7d234c638725b316fec76" module="network-manager-applet/1.4/network-manager-applet-1.4.6.tar.xz" repo="https://download.gnome.org/sources/" size="1388916" version="1.4.6"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="dbus-glib"/>
+      <dep package="gnome-bluetooth"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="gudev"/>
+      <dep package="iso-codes"/>
+      <dep package="libsecret"/>
+      <dep package="NetworkManager"/>
+      <dep package="libnotify"/>
+    </dependencies>
+    <suggests>
+      <dep package="mobile-broadband-provider-info"/>
+    </suggests>
+  </autotools>
+  <autotools id="rygel" supports-non-srcdir-builds="no">
+    <branch hash="sha256:39acb4d63859067e5666189c853b28d8e63ec333d47b104b30da67009ebb24b2" module="rygel/0.33/rygel-0.33.92.tar.xz" repo="https://download.gnome.org/sources/" size="3995796" version="0.33.92"/>
+    <dependencies>
+      <dep package="vala"/>
+      <dep package="gupnp"/>
+      <dep package="gupnp-av"/>
+      <dep package="gupnp-dlna"/>
+      <dep package="libgee"/>
+      <dep package="tracker"/>
+      <dep package="libmediaart"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-upower" id="telepathy-mission-control" supports-non-srcdir-builds="no">
+    <branch hash="sha256:9769ddac7ad8aad21f6db854016792162b57e6fa0b0aed8d823d76a71fe7e6cb" module="telepathy-mission-control/telepathy-mission-control-5.16.4.tar.gz" repo="http://telepathy.freedesktop.org/releases/" size="1102177" version="5.16.4"/>
+    <branch repo="telepathy.freedesktop.org" revision="telepathy-mission-control-5.16"/>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="dbus-glib"/>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="libxslt"/>
+      <dep package="telepathy-glib"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="vino">
+    <branch hash="sha256:2911c779b6a2c46e5bc8e5a0c94c2a4d5bd4a1ee7e35f2818702cb13d9d23bab" module="vino/3.22/vino-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="768716" version="3.22.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libsoup"/>
+    </dependencies>
+    <suggests>
+      <dep package="avahi"/>
+      <dep package="gnutls"/>
+      <dep package="libgcrypt"/>
+      <dep package="libnotify"/>
+      <dep package="libsecret"/>
+      <dep package="telepathy-glib"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools id="baobab">
+    <branch hash="sha256:7d8f45068928736ebd9ba027972899fad74757f1e09e55de6db8984915405943" module="baobab/3.23/baobab-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="969452" version="3.23.91"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="librsvg"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="cheese">
+    <branch hash="sha256:34353d19134da0041343b90ba737ec758bb5d1e23bd6e985c66b7e15f5313ae9" module="cheese/3.22/cheese-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="1843092" version="3.22.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gst-plugins-good"/>
+      <dep package="clutter-gst"/>
+      <dep package="clutter-gtk"/>
+      <dep package="libcanberra"/>
+      <dep package="vala"/>
+      <dep package="gnome-video-effects"/>
+      <dep package="librsvg"/>
+      <dep package="gnome-desktop"/>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="eog">
+    <branch hash="sha256:e8f25cfa701f1e66cff6008f77d0f3efbb0f346eb05db04344e15f73e4a1595a" module="eog/3.23/eog-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="4631616" version="3.23.92"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="libjpeg"/>
+      <dep package="libpeas"/>
+      <dep package="libxml2"/>
+      <dep package="shared-mime-info"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+    <suggests>
+      <dep package="exempi"/>
+      <dep package="libexif"/>
+      <dep package="lcms2"/>
+      <dep package="librsvg"/>
+    </suggests>
+  </autotools>
+  <autotools id="epiphany">
+    <branch hash="sha256:c64cffb48f2ab5087666b363082bd47fb8e7d62eceb9398656bb2619b627514a" module="epiphany/3.23/epiphany-3.23.93.tar.xz" repo="https://download.gnome.org/sources/" size="3271696" version="3.23.93"/>
+    <dependencies>
+      <dep package="WebKit"/>
+      <dep package="appstream-glib"/>
+      <dep package="cairo"/>
+      <dep package="gcr"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gettext"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gtk+-3"/>
+      <dep package="hogweed"/>
+      <dep package="iso-codes"/>
+      <dep package="json-glib"/>
+      <dep package="libhttpseverywhere"/>
+      <dep package="libnotify"/>
+      <dep package="libsecret"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="libxslt"/>
+      <dep package="nettle"/>
+      <dep package="sqlite3"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-introspection" id="evince" supports-parallel-builds="no">
+    <branch hash="sha256:f3d439db3b5a5745d26175d615a71dffa1535235b1e3aa0b85d397ea33ab231c" module="evince/3.22/evince-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="3365004" version="3.22.1"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libxml2"/>
+      <dep package="adwaita-icon-theme"/>
+      <dep package="libsecret"/>
+      <dep package="poppler"/>
+      <dep package="nautilus"/>
+      <dep package="libgxps"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+    <suggests>
+      <dep package="libsecret"/>
+    </suggests>
+  </autotools>
+  <autotools id="file-roller">
+    <branch hash="sha256:2991d359fe8a9e9018a60d3f96d72cc5ddd3062a161885d0c5d8de427485bb83" module="file-roller/3.23/file-roller-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1427860" version="3.23.92"/>
+    <dependencies>
+      <dep package="file"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gedit">
+    <branch hash="sha256:063b5a0b5dcc8f540f6e8c3ea1c22cf8a3a19edffc25315a1b6bc51d462b3f45" module="gedit/3.22/gedit-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="2957520" version="3.22.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="libpeas"/>
+      <dep package="yelp-tools"/>
+      <dep package="gtksourceview-3"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="python3-devel"/>
+      <if condition-set="macos">
+        <dep package="gtk-mac-integration"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="gspell"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-vala" id="gnome-boxes" supports-non-srcdir-builds="no">
+    <branch hash="sha256:7296b15b9c829747cdef6d9c4aa4bb7e2846ee038580bbe64fe329f18e2af057" module="gnome-boxes/3.23/gnome-boxes-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="1710040" version="3.23.91"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="gtk-vnc"/>
+      <dep package="libgovirt"/>
+      <dep package="libosinfo"/>
+      <dep package="libusb1-1.0.9"/>
+      <dep package="libvirt-glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="spice-gtk"/>
+      <dep package="vala"/>
+      <dep package="tracker"/>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-calculator" supports-non-srcdir-builds="no">
+    <branch hash="sha256:043afda9fd602fba5f05e6aba2dbe2002a249acdf7c6ee0f209693ff8fdfdb32" module="gnome-calculator/3.23/gnome-calculator-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1347064" version="3.23.92"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gtksourceview-3"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="mpc"/>
+      <dep package="mpfr"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-calendar">
+    <branch hash="sha256:b9f9a1bb8e747243c97778b3fd85cf0e9d16593159802a9467b4ca7a1dbb338d" module="gnome-calendar/3.23/gnome-calendar-3.23.91.1.tar.xz" repo="https://download.gnome.org/sources/" size="2394176" version="3.23.91.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="evolution-data-server"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-characters">
+    <branch hash="sha256:0778b625646d6d934cf252d58a2e16403889da6bfc237bdca1d3cb3258f63d4e" module="gnome-characters/3.22/gnome-characters-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1481416" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gjs"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-clocks" supports-non-srcdir-builds="no">
+    <branch hash="sha256:afcfe94baa4eb400d1fbd372334c350e7bd823f65b2bc796db831937ed2445ea" module="gnome-clocks/3.23/gnome-clocks-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="953788" version="3.23.90"/>
+    <dependencies>
+      <dep package="vala"/>
+      <dep package="gtk+-3"/>
+      <dep package="gsound"/>
+      <dep package="gnome-desktop"/>
+      <dep package="libgweather"/>
+      <dep package="geoclue"/>
+      <dep package="geocode-glib"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-contacts" supports-non-srcdir-builds="no">
+    <branch hash="sha256:e45297fb6f379a978605f7e183201be70dff2912f55072a363bdb1f67d9fe87b" module="gnome-contacts/3.22/gnome-contacts-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="788820" version="3.22.1"/>
+    <dependencies>
+      <dep package="folks"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gtk+-3"/>
+      <dep package="libgee"/>
+      <dep package="telepathy-glib"/>
+      <dep package="vala"/>
+      <dep package="libchamplain"/>
+    </dependencies>
+    <suggests>
+      <dep package="cheese"/>
+      <dep package="gstreamer"/>
+    </suggests>
+  </autotools>
+  <autotools id="gnome-disk-utility">
+    <branch hash="sha256:b432504fe7b4b1e5e3789f3856ffb39c555c8c98b9512215662d22e834cf4777" module="gnome-disk-utility/3.23/gnome-disk-utility-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1946028" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="glib"/>
+      <dep package="gnome-settings-daemon"/>
+      <dep package="gtk+-3"/>
+      <dep package="libnotify"/>
+      <dep package="libpwquality"/>
+      <dep package="libsecret"/>
+      <dep package="udisks"/>
+      <dep package="dvdread"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-documents" supports-non-srcdir-builds="no">
+    <branch hash="sha256:d7e1272701e02df2fffe80b0eb9702befee04481e0b33d5f61a4d7bbe3a50eb9" module="gnome-documents/3.23/gnome-documents-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="2312052" version="3.23.91"/>
+    <dependencies>
+      <dep package="evince"/>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-desktop"/>
+      <dep package="tracker"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gnome-online-miners"/>
+      <dep package="libgdata"/>
+      <dep package="libgepub"/>
+      <dep package="liboauth"/>
+      <dep package="libzapojit"/>
+      <dep package="WebKit"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-font-viewer">
+    <branch hash="sha256:f6ca813c388741ca5ffcdd5b5fb7a65ac5ba2da2818592ae3161bddba92e88d0" module="gnome-font-viewer/3.23/gnome-font-viewer-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="320860" version="3.23.91"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-initial-setup">
+    <branch hash="sha256:33e0822aae67f772322d51f3fd28dc01143be925092b206f28d1eb0ac77b3f04" module="gnome-initial-setup/3.23/gnome-initial-setup-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="2982504" version="3.23.92"/>
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="geoclue"/>
+      <dep package="gdm"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-keyring"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gstreamer"/>
+      <dep package="iso-codes"/>
+      <dep package="libgweather"/>
+      <dep package="libpwquality"/>
+      <dep package="WebKit"/>
+      <if condition-set="linux">
+        <dep package="network-manager-applet"/>
+        <dep package="NetworkManager"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="upower"/>
+      <dep package="gnome-getting-started-docs"/>
+    </suggests>
+  </autotools>
+  <autotools id="gnome-logs">
+    <branch hash="sha256:84cc22e5972dc56d7fb7ba9d1c79603625a6c3017143c6af404f24968cf7720f" module="gnome-logs/3.23/gnome-logs-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="987644" version="3.23.91"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gtk+-3"/>
+      <dep package="libsystemd"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-maps">
+    <branch hash="sha256:f2118e2243011ffa945b8f4bc9e809af2abe613f32c3d851f20ae17fd958ddd5" module="gnome-maps/3.23/gnome-maps-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1138624" version="3.23.92"/>
+    <dependencies>
+      <dep package="clutter-gtk"/>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="glib-networking"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-desktop"/>
+      <dep package="libchamplain"/>
+      <dep package="geocode-glib"/>
+      <dep package="geoclue"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="libgfbgraph"/>
+      <dep package="folks"/>
+      <dep package="libgee"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-photos" supports-non-srcdir-builds="no">
+    <branch hash="sha256:659fdc9d4c8e53c3c58df0b8a6ea6296cb67a95b769980f96a687897ec5eb2c4" module="gnome-photos/3.23/gnome-photos-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="982960" version="3.23.92"/>
+    <dependencies>
+      <dep package="babl"/>
+      <dep package="gegl"/>
+      <dep package="cairo"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="geocode-glib"/>
+      <dep package="gexiv2"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gnome-online-miners"/>
+      <dep package="grilo"/>
+      <dep package="grilo-plugins"/>
+      <dep package="gtk+-3"/>
+      <dep package="libgdata"/>
+      <dep package="libgfbgraph"/>
+      <dep package="libjpeg"/>
+      <dep package="libpng"/>
+      <dep package="tracker"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-screenshot">
+    <branch hash="sha256:8a05f14b3c7c6cb42f9848ad0332034c7fe5c34a69742910203588fd60b00230" module="gnome-screenshot/3.22/gnome-screenshot-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="258888" version="3.22.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-software">
+    <branch hash="sha256:fa0e59bc2f4c4653873e3da8ca38793a1fcbe73bfd18a11de31d78ba5ab3e024" module="gnome-software/3.23/gnome-software-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="4232072" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gtk+-3"/>
+      <dep package="libsecret"/>
+      <dep package="libsoup"/>
+      <dep package="PackageKit"/>
+      <dep package="sqlite3"/>
+      <dep package="valgrind"/>
+      <dep package="gtkspell-3"/>
+      <if condition-set="linux">
+        <dep package="fwupd"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-system-monitor">
+    <branch hash="sha256:70f024600beb7cd5944f1f034830ccaf174fed79516d64057d87a4ff8108e34c" module="gnome-system-monitor/3.23/gnome-system-monitor-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="928016" version="3.23.92"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="libwnck"/>
+      <dep package="libgtop"/>
+      <dep package="gtk+-3"/>
+      <dep package="gtkmm-3"/>
+      <dep package="libxml2"/>
+      <dep package="librsvg"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-migration" id="gnome-terminal">
+    <branch hash="sha256:3da921a4d21dd1bc61cb2501a66701b2440bb667f7ff8697a88632685594c29a" module="gnome-terminal/3.23/gnome-terminal-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="1924436" version="3.23.90"/>
+    <dependencies>
+      <dep package="dconf"/>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="libuuid"/>
+      <dep package="vte"/>
+      <dep package="yelp-tools"/>
+      <dep package="nautilus"/>
+      <dep package="appstream-glib"/>
+    </dependencies>
+    <suggests>
+      <dep package="gnome-shell"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-dogtail" id="gnome-weather">
+    <branch hash="sha256:7823ca7c08fa852232b98c2517830e3bd9b0ab80c9ac83f182c18ec140a5c18b" module="gnome-weather/3.20/gnome-weather-3.20.2.tar.xz" repo="https://download.gnome.org/sources/" size="5360264" version="3.20.2"/>
+    <if condition-set="coverage">
+      <autogenargs value="--enable-coverage"/>
+    </if>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="geoclue"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="libgweather"/>
+      <dep package="gjs"/>
+      <if condition-set="coverage">
+        <dep package="lcov"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-selinux" id="nautilus">
+    <branch hash="sha256:062d973d45059a15b96b5d2d248c55aa4c13961307d43cb93f20bc9691be85d6" module="nautilus/3.23/nautilus-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="3521200" version="3.23.91"/>
+    <dependencies>
+      <dep package="gettext"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnome-autoar"/>
+      <dep package="pango"/>
+      <dep package="libxml2"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="tracker"/>
+      <dep package="exempi"/>
+      <dep package="libexif"/>
+    </dependencies>
+  </autotools>
+  <autotools id="orca">
+    <branch hash="sha256:ff3839e14bd255be9e621e7e3ab24392dcc22c0a99f6587b4d41c41f58f5e262" module="orca/3.23/orca-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="2385056" version="3.23.91"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="at-spi2-atk"/>
+      <dep package="gobject-introspection"/>
+      <dep package="intltool"/>
+      <dep package="pyatspi2"/>
+      <dep package="pygobject"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+    <suggests>
+      <dep package="speech-dispatcher"/>
+    </suggests>
+  </autotools>
+  <autotools id="sushi">
+    <branch hash="sha256:ed822ef5b989da61830af6d23e4e5e42b1fd405e098221794f70857bfa558e2a" module="sushi/3.23/sushi-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="296416" version="3.23.91"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gjs"/>
+      <dep package="libmusicbrainz"/>
+      <dep package="evince"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gtk"/>
+      <dep package="clutter-gst"/>
+      <dep package="gtksourceview-3"/>
+      <dep package="WebKit"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="totem">
+    <branch hash="sha256:5beee6d8410bcec09b3efa183d69e51717764c5fe278969244b3c152abacd909" module="totem/3.23/totem-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="1984556" version="3.23.90"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="cairo"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gst"/>
+      <dep package="clutter-gtk"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gnome-desktop"/>
+      <dep package="grilo"/>
+      <dep package="grilo-plugins"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gst-plugins-good"/>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="iso-codes"/>
+      <dep package="libpeas"/>
+      <dep package="totem-pl-parser"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="yelp">
+    <branch hash="sha256:8616b77c239aaa731312609f192c9b2c71d54b2cae42ff23efa23b5b3188778e" module="yelp/3.22/yelp-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1383500" version="3.22.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libxml2"/>
+      <dep package="libxslt"/>
+      <dep package="WebKit"/>
+      <dep package="yelp-xsl"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-systemdsystemunitdir=no" id="accountsservice">
+    <branch hash="sha256:ed3ba94aa38ceb822a0e1a1ac71bf1a8123babf90be049397b3a00900e48d6cc" module="accountsservice-0.6.43.tar.xz" repo="http://www.freedesktop.org/software/accountsservice/" size="381008" version="0.6.43"/>
+    <branch module="accountsservice" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="polkit-gobject"/>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="PYTHON=python3 --with-udev-dir=${libdir}/udev --with-systemdsystemunitdir=no --with-crypto=gnutls --disable-more-warnings --disable-json-validation" id="NetworkManager">
+    <branch hash="sha256:b22b6f55cde37bec4982f9be4b1808a21101d807a05049c670116d95059a26f9" module="NetworkManager/1.6/NetworkManager-1.6.2.tar.xz" repo="https://download.gnome.org/sources/" size="3801900" version="1.6.2"/>
+    <branch checkoutdir="NetworkManager" module="NetworkManager/NetworkManager.git" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="libndp"/>
+      <dep package="libnl"/>
+      <dep package="libnl-genl"/>
+      <dep package="libnl-route"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="pygobject"/>
+      <dep package="iptables"/>
+      <dep package="dbus-glib"/>
+      <dep package="libgcrypt"/>
+      <dep package="libuuid"/>
+      <dep package="gtk-doc"/>
+      <dep package="polkit-agent"/>
+      <dep package="gudev"/>
+      <dep package="gnutls"/>
+      <dep package="readline"/>
+      <dep package="ppp"/>
+      <dep package="vala"/>
+      <dep package="wireless-tools"/>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-tests --disable-qt --disable-browser-plugin --disable-bash-completion --with-systemdsystemunitdir=no" id="PackageKit" makeargs="CFLAGS=-Wno-error">
+    <branch hash="sha256:50f448ced5b460bd79ba0c97e9fe080153eaeecad909eee108284e3f5fc7b70c" module="PackageKit-1.1.5.tar.xz" repo="http://www.freedesktop.org/software/PackageKit/releases/" size="1418292" version="1.1.5"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-systemd --disable-systemd-updates"/>
+    </if>
+    <if condition-set="bsd">
+      <autogenargs value="--enable-ports"/>
+    </if>
+    <branch module="hughsie/PackageKit.git" repo="github.com"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="dbus"/>
+      <dep package="dbus-glib"/>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="polkit-gobject"/>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+        <dep package="NetworkManager"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--with-systemdsystemunitdir=no" id="udisks">
+    <branch hash="sha256:da416914812a77e5f4d82b81deb8c25799fd3228d27d52f7bf89a501b1857dda" module="udisks-2.1.8.tar.bz2" repo="http://udisks.freedesktop.org/releases/" size="931110" version="2.1.8"/>
+    <pkg-config/>
+    <branch module="storaged-project/udisks" repo="github.com"/>
+    <dependencies>
+      <dep package="gudev"/>
+      <dep package="libacl"/>
+      <dep package="polkit-gobject"/>
+      <dep package="polkit-agent"/>
+      <dep package="libatasmart"/>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-systemdsystemunitdir=no" id="upower" supports-non-srcdir-builds="no">
+    <branch hash="sha256:9ca325a6ccef505529b268ebbbd9becd0ce65a65f6ac7ee31e2e5b17648037b0" module="upower-0.99.4.tar.xz" repo="http://upower.freedesktop.org/releases/" size="426292" version="0.99.4"/>
+    <branch repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="dbus-glib"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+    <suggests>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </suggests>
+  </autotools>
+  <metamodule id="meta-gnome-core-utilities">
+    <dependencies>
+      <dep package="baobab"/>
+      <dep package="cheese"/>
+      <dep package="eog"/>
+      <dep package="epiphany"/>
+      <dep package="evince"/>
+      <dep package="file-roller"/>
+      <dep package="gedit"/>
+      <dep package="gnome-calculator"/>
+      <dep package="gnome-calendar"/>
+      <dep package="gnome-characters"/>
+      <dep package="gnome-clocks"/>
+      <dep package="gnome-contacts"/>
+      <dep package="gnome-documents"/>
+      <dep package="gnome-font-viewer"/>
+      <dep package="gnome-maps"/>
+      <dep package="gnome-photos"/>
+      <dep package="gnome-screenshot"/>
+      <dep package="gnome-software"/>
+      <dep package="gnome-system-monitor"/>
+      <dep package="gnome-terminal"/>
+      <dep package="gnome-weather"/>
+      <dep package="nautilus"/>
+      <dep package="sushi"/>
+      <dep package="totem"/>
+      <dep package="yelp"/>
+      <if condition-set="linux">
+        <dep package="gnome-disk-utility"/>
+        <dep package="gnome-boxes"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="gnome-logs"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-core-shell">
+    <dependencies>
+      <dep package="adwaita-icon-theme"/>
+      <dep package="dconf"/>
+      <dep package="gdm"/>
+      <dep package="gnome-backgrounds"/>
+      <dep package="gnome-color-manager"/>
+      <dep package="gnome-control-center"/>
+      <dep package="gnome-getting-started-docs"/>
+      <dep package="gnome-keyring"/>
+      <dep package="gnome-session"/>
+      <dep package="gnome-settings-daemon"/>
+      <dep package="gnome-shell"/>
+      <dep package="gnome-shell-extensions"/>
+      <dep package="gnome-themes-standard"/>
+      <dep package="gnome-user-docs"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gvfs"/>
+      <dep package="glib-networking"/>
+      <dep package="mousetweaks"/>
+      <dep package="mutter"/>
+      <dep package="orca"/>
+      <dep package="pulseaudio"/>
+      <dep package="rygel"/>
+      <dep package="telepathy-mission-control"/>
+      <dep package="vino"/>
+      <if condition-set="linux">
+        <dep package="gnome-initial-setup"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="gnome-user-share"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-core-os-services">
+    <dependencies>
+      <dep package="accountsservice"/>
+      <dep package="avahi"/>
+      <dep package="bluez"/>
+      <dep package="cups"/>
+      <dep package="dbus"/>
+      <dep package="PackageKit"/>
+      <dep package="upower"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+        <dep package="udisks"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-core">
+    <dependencies>
+      <dep package="meta-gnome-core-shell"/>
+      <dep package="meta-gnome-core-utilities"/>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-devel-platform">
+    <dependencies>
+      <dep package="atk"/>
+      <dep package="at-spi2-core"/>
+      <dep package="at-spi2-atk"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="pango"/>
+      <if condition-set="macos">
+        <dep package="adwaita-icon-theme"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-extended-devel-platform">
+    <dependencies>
+      <dep package="meta-gnome-devel-platform"/>
+      <dep package="evolution-data-server"/>
+      <dep package="gstreamer"/>
+      <dep package="libnotify"/>
+      <dep package="libpeas"/>
+      <dep package="telepathy-glib"/>
+      <dep package="WebKit"/>
+      <dep package="pygobject"/>
+      <dep package="gjs"/>
+      <dep package="gtkmm-3"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+      </if>
+      <if condition-unset="macos">
+        <dep package="PackageKit"/>
+        <dep package="upower"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <repository href="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" name="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" type="tarball"/>
+  <repository href="https://download.gnome.org/sources/" name="https://download.gnome.org/sources/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/babl/" name="http://ftp.gimp.org/pub/babl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/colord/releases/" name="http://www.freedesktop.org/software/colord/releases/" type="tarball"/>
+  <repository href="http://people.freedesktop.org/~hughsient/releases/" name="http://people.freedesktop.org/~hughsient/releases/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/gegl/" name="http://ftp.gimp.org/pub/gegl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/geoclue/releases/2.4/" name="http://www.freedesktop.org/software/geoclue/releases/2.4/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gstreamer/" name="http://gstreamer.freedesktop.org/src/gstreamer/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" name="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-base/" name="http://gstreamer.freedesktop.org/src/gst-plugins-base/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-good/" name="http://gstreamer.freedesktop.org/src/gst-plugins-good/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/harfbuzz/release/" name="http://www.freedesktop.org/software/harfbuzz/release/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libinput/" name="http://www.freedesktop.org/software/libinput/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libmbim/" name="http://www.freedesktop.org/software/libmbim/" type="tarball"/>
+  <repository href="https://releases.pagure.org/libosinfo/" name="https://releases.pagure.org/libosinfo/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libqmi/" name="http://www.freedesktop.org/software/libqmi/" type="tarball"/>
+  <repository href="ftp://libvirt.org/libvirt/glib/" name="ftp://libvirt.org/libvirt/glib/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/ModemManager/" name="http://www.freedesktop.org/software/ModemManager/" type="tarball"/>
+  <repository href="http://telepathy.freedesktop.org/releases/" name="http://telepathy.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://tecnocode.co.uk/downloads/uhttpmock/" name="http://tecnocode.co.uk/downloads/uhttpmock/" type="tarball"/>
+  <repository href="http://wayland.freedesktop.org/releases/" name="http://wayland.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/accountsservice/" name="http://www.freedesktop.org/software/accountsservice/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/PackageKit/releases/" name="http://www.freedesktop.org/software/PackageKit/releases/" type="tarball"/>
+  <repository href="http://udisks.freedesktop.org/releases/" name="http://udisks.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://upower.freedesktop.org/releases/" name="http://upower.freedesktop.org/releases/" type="tarball"/>
+</moduleset>

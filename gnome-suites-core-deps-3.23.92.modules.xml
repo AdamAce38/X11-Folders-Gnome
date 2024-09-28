@@ -1,0 +1,1633 @@
+<?xml version="1.0" ?>
+<moduleset>
+  <repository href="http://cairographics.org/" name="cairo.org" type="tarball"/>
+  <repository href="http://pkg-isocodes.alioth.debian.org/downloads/" name="iso-codes" type="tarball"/>
+  <repository href="http://sourceforge.net/projects/" name="sourceforge.net" type="tarball"/>
+  <repository href="http://webkitgtk.org/releases/" name="webkitgtk.org" type="tarball"/>
+  <repository href="http://freedesktop.org/software/" name="freedesktop.org" type="tarball"/>
+  <repository href="http://people.freedesktop.org/" name="people.freedesktop.org" type="tarball"/>
+  <repository href="http://icon-theme.freedesktop.org/releases/" name="icon-theme.freedesktop.org" type="tarball"/>
+  <repository href="http://nice.freedesktop.org/releases/" name="nice.freedesktop.org" type="tarball"/>
+  <repository href="http://ftp.mozilla.org/" name="ftp.mozilla.org" type="tarball"/>
+  <repository href="http://www.kernel.org" name="kernel.org" type="tarball"/>
+  <repository href="http://ftp.gnu.org/gnu/" name="ftp.gnu.org" type="tarball"/>
+  <repository href="https://launchpad.net/mir/" name="mir" type="tarball"/>
+  <repository href="http://xorg.freedesktop.org/" name="xorg-tar" type="tarball"/>
+  <repository href="https://github.com/" name="github-tar" type="tarball"/>
+  <repository href="http://xkbcommon.org/download/" name="libxkbcommon" type="tarball"/>
+  <repository href="https://github.com/" name="tarball.github.com" type="tarball"/>
+  <repository href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" name="pcre" type="tarball"/>
+  <repository href="http://devel.freebsoft.org/pub/projects/speechd/" name="speech-dispatcher" type="tarball"/>
+  <repository href="http://www.spice-space.org/download/" name="spice" type="tarball"/>
+  <repository href="https://people.mozilla.org/~sstangl/" name="people.mozilla.org" type="tarball"/>
+  <include href="gnome-sysdeps-3.23.92.modules"/>
+  <autotools autogenargs="--disable-stemmer" id="appstream-glib">
+    <branch hash="sha256:15eaa7bffbd19ed7b52cd4945c2cbefecb3eceaf6408c07b39ec1b7daf52cc5f" module="appstream-glib-0.6.10.tar.xz" repo="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" size="1966252" version="0.6.10"/>
+    <branch module="hughsie/appstream-glib.git" repo="github.com"/>
+    <dependencies>
+      <dep package="freetype2"/>
+      <dep package="gcab"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="json-glib"/>
+      <dep package="libarchive"/>
+      <dep package="libsoup"/>
+      <dep package="libuuid"/>
+      <dep package="libyaml"/>
+      <dep package="sqlite3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="atk">
+    <branch hash="sha256:6888f4e902fc4727b1687ff512d5d087050f4c0d11035566484988cf698c2c1a" module="atk/2.23/atk-2.23.4.tar.xz" repo="https://download.gnome.org/sources/" size="747356" version="2.23.4"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk-doc"/>
+    </dependencies>
+  </autotools>
+  <autotools id="atkmm-1.6">
+    <branch hash="sha256:ff95385759e2af23828d4056356f25376cfabc41e690ac1df055371537e458bd" module="atkmm/2.24/atkmm-2.24.2.tar.xz" repo="https://download.gnome.org/sources/" size="849784" version="2.24.2"/>
+    <branch checkoutdir="atkmm-1.6" module="atkmm" revision="atkmm-2-24"/>
+    <dependencies>
+      <dep package="glibmm-2.4"/>
+      <dep package="atk"/>
+    </dependencies>
+  </autotools>
+  <autotools id="atkmm">
+    <branch hash="sha256:0ebe07c16de1423bca63263ae4bcc49687414c423cb0c49ae001b6f0f7038a63" module="atkmm/2.25/atkmm-2.25.1.tar.xz" repo="https://download.gnome.org/sources/" size="883308" version="2.25.1"/>
+    <dependencies>
+      <dep package="glibmm"/>
+      <dep package="atk"/>
+    </dependencies>
+  </autotools>
+  <autotools id="babl">
+    <branch hash="sha256:472bf1acdde5bf076e6d86f3004eea4e9b007b1377ab305ebddec99994f29d0b" module="0.1/babl-0.1.24.tar.bz2" repo="http://ftp.gimp.org/pub/babl/" size="616887" version="0.1.24"/>
+    <if condition-set="darwin">
+      <autogenargs value="--disable-sse"/>
+    </if>
+  </autotools>
+  <autotools autogen-sh="configure" id="cairomm-1.0">
+    <branch hash="sha256:97a78bd7de6baf8af3da1f9b39f1317f8da9f1145b7694e928fbd5521da08ef6" module="releases/cairomm-${version}.tar.gz" repo="cairo.org" version="1.13.1"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="libsigcplusplus-2.0"/>
+    </dependencies>
+  </autotools>
+  <autotools autogen-sh="configure" id="cairomm">
+    <branch hash="sha256:d858a8c6981a033d8f851d58e19ec7d42d496a40fbec028028498832b6700bc8" module="releases/cairomm-${version}.tar.gz" repo="cairo.org" version="1.15.3"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="libsigcplusplus"/>
+    </dependencies>
+  </autotools>
+  <autotools id="cantarell-fonts">
+    <branch hash="sha256:14a228aa0b516dfc367b434a850f955a00c57fc549cbb05348e2b150196a737f" module="cantarell-fonts/0.0/cantarell-fonts-0.0.25.tar.xz" repo="https://download.gnome.org/sources/" size="351768" version="0.0.25"/>
+    <dependencies>
+      <dep package="fontconfig"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests --disable-maintainer-flags" id="clutter">
+    <branch hash="sha256:67514e7824b3feb4723164084b36d6ce1ae41cb3a9897e9f1a56c8334993ce06" module="clutter/1.26/clutter-1.26.0.tar.xz" repo="https://download.gnome.org/sources/" size="5378576" version="1.26.0"/>
+    <if condition-unset="quartz">
+      <autogenargs value="--enable-egl-backend"/>
+    </if>
+    <if condition-set="evdev">
+      <autogenargs value="--enable-evdev-input"/>
+    </if>
+    <if condition-set="wayland">
+      <autogenargs value="--enable-wayland-backend --enable-wayland-compositor"/>
+    </if>
+    <if condition-set="quartz">
+      <autogenargs value="--enable-quartz-backend"/>
+    </if>
+    <dependencies>
+      <dep package="cogl"/>
+      <dep package="atk"/>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="json-glib"/>
+      <dep package="gobject-introspection"/>
+      <if condition-set="evdev">
+        <dep package="libinput"/>
+        <dep package="libxkbcommon"/>
+      </if>
+      <if condition-set="wayland">
+        <dep package="wayland"/>
+        <dep package="libxkbcommon"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="gdk-pixbuf"/>
+      <if condition-set="wayland">
+        <dep package="gudev"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools id="clutter-gst">
+    <branch hash="sha256:f1fc57fb32ea7e3d9234b58db35eb9ef3028cf0b266d85235f959edc0fe3dfd4" module="clutter-gst/3.0/clutter-gst-3.0.22.tar.xz" repo="https://download.gnome.org/sources/" size="404852" version="3.0.22"/>
+    <branch checkoutdir="clutter-gst3" module="clutter-gst" revision="clutter-gst-3.0"/>
+    <dependencies>
+      <dep package="cogl"/>
+      <dep package="clutter"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools id="clutter-gtk">
+    <branch hash="sha256:da27d486325490ad3f65d2abf9413aeb8b4a8f7b559e4b2f73567a5344a26b94" module="clutter-gtk/1.8/clutter-gtk-1.8.2.tar.xz" repo="https://download.gnome.org/sources/" size="326964" version="1.8.2"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-cogl-gst --disable-maintainer-flags" id="cogl">
+    <branch hash="sha256:39a718cdb64ea45225a7e94f88dddec1869ab37a21b339ad058a9d898782c00d" module="cogl/1.22/cogl-1.22.2.tar.xz" repo="https://download.gnome.org/sources/" size="1682360" version="1.22.2"/>
+    <if condition-set="x11">
+      <autogenargs value="--enable-xlib-egl-platform"/>
+    </if>
+    <if condition-set="wayland">
+      <autogenargs value="--enable-wayland-egl-platform --enable-wayland-egl-server --enable-kms-egl-platform"/>
+    </if>
+    <if condition-set="quartz">
+      <autogenargs value="--enable-gl"/>
+    </if>
+    <pkg-config/>
+    <branch revision="cogl-1.22"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="pango"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <if condition-unset="quartz">
+        <dep package="libdrm"/>
+      </if>
+      <if condition-set="x11">
+        <dep package="libXcomposite"/>
+        <dep package="xcb-dri2"/>
+      </if>
+      <if condition-set="wayland">
+        <dep package="wayland"/>
+        <dep package="wayland-egl"/>
+        <dep package="gbm"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-examples --disable-strict --disable-bash-completion --with-systemdsystemunitdir=no" id="colord">
+    <branch hash="sha256:2daa8ffd2a532d7094927cd1a4af595b8310cea66f7707edcf6ab743460feed2" module="colord-1.3.5.tar.xz" repo="http://www.freedesktop.org/software/colord/releases/" size="1263488" version="1.3.5"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-gusb --disable-udev --disable-systemd-login"/>
+    </if>
+    <branch checkoutdir="colord" module="hughsie/colord.git" repo="github.com"/>
+    <dependencies>
+      <dep package="argyll"/>
+      <dep package="glib"/>
+      <dep package="dbus"/>
+      <dep package="sqlite3"/>
+      <dep package="lcms2"/>
+      <dep package="gobject-introspection"/>
+      <dep package="docbook-xml"/>
+      <if condition-set="linux">
+        <dep package="libgusb"/>
+        <dep package="libusb1"/>
+        <dep package="gudev"/>
+      </if>
+      <if condition-set="systemd">
+        <dep package="libsystemd"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="polkit-gobject"/>
+    </suggests>
+  </autotools>
+  <autotools id="colord-gtk">
+    <branch hash="sha256:28d00b7f157ea3e2ea5315387b2660fde82faba16674861c50465e55d61a3e45" module="colord-gtk-0.1.26.tar.xz" repo="http://www.freedesktop.org/software/colord/releases/" size="280380" version="0.1.26"/>
+    <branch checkoutdir="colord-gtk" module="hughsie/colord-gtk.git" repo="github.com"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="colord"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <cmake cmakeargs="-DENABLE_INTROSPECTION=ON -DENABLE_VALA_BINDINGS=ON -DENABLE_UOA=OFF -DENABLE_GOOGLE_AUTH=OFF" id="evolution-data-server">
+    <branch hash="sha256:5d5e6c428498593062641c71bc23311da95061bc4e8bbcae662087b40669db13" module="evolution-data-server/3.23/evolution-data-server-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="4297420" version="3.23.92"/>
+    <if condition-set="freebsd">
+      <cmakeargs value="-DWITH_LIBDB_CFLAGS=-I/usr/local/include/db5 -DWITH_LIBDB_LIBS=-ldb-5"/>
+    </if>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="gtk+-3"/>
+      <dep package="sqlite3"/>
+      <dep package="gcr"/>
+      <dep package="libgweather"/>
+      <dep package="libical"/>
+      <dep package="libgdata"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="liboauth"/>
+      <dep package="vala"/>
+      <dep package="libdb"/>
+      <dep package="libsecret"/>
+      <dep package="WebKit"/>
+      <dep package="openldap"/>
+      <dep package="nspr"/>
+      <dep package="nss"/>
+    </dependencies>
+  </cmake>
+  <autotools autogenargs="--enable-eds-backend --disable-libsocialweb-backend --disable-fatal-warnings" id="folks" supports-non-srcdir-builds="no" uninstall-before-install="true">
+    <branch hash="sha256:2a2828a7c87fd39e5786f8f2cf0ebe47576a74974f1355c478a6dc747d7bcb64" module="folks/0.11/folks-0.11.3.tar.xz" repo="https://download.gnome.org/sources/" size="1950448" version="0.11.3"/>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="dbus-glib"/>
+      <dep package="libgee"/>
+      <dep package="vala"/>
+      <dep package="gobject-introspection"/>
+      <dep package="telepathy-glib"/>
+      <dep package="evolution-data-server"/>
+      <dep package="shared-mime-info"/>
+    </dependencies>
+    <suggests>
+      <dep package="telepathy-logger"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-colorhug --disable-uefi" id="fwupd">
+    <branch hash="sha256:88292383a8d125d13277db70cfef62b52fea5089c41f79f2db609956bc52006b" module="fwupd-0.8.1.tar.xz" repo="http://people.freedesktop.org/~hughsient/releases/" size="618360" version="0.8.1"/>
+    <branch checkoutdir="fwupd" module="hughsie/fwupd" repo="github.com"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gcab"/>
+      <dep package="glib"/>
+      <dep package="gudev"/>
+      <dep package="libarchive"/>
+      <dep package="libgusb"/>
+      <dep package="libsoup"/>
+      <dep package="polkit-gobject"/>
+      <dep package="sqlite3"/>
+      <dep package="gpgme"/>
+      <dep package="docbook-utils"/>
+      <dep package="libgusb"/>
+      <dep package="libelf"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gcab">
+    <branch hash="sha256:a16e5ef88f1c547c6c8c05962f684ec127e078d302549f3dfd2291e167d4adef" module="gcab/0.7/gcab-0.7.tar.xz" repo="https://download.gnome.org/sources/" size="332248" version="0.7"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+      <dep package="zlib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-autoar">
+    <branch hash="sha256:f642935e9213663c114988403fba26c02e79a644b33cb0e4da0d4aec570fb1fb" module="gnome-autoar/0.2/gnome-autoar-0.2.1.tar.xz" repo="https://download.gnome.org/sources/" size="295316" version="0.2.1"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libarchive"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gcr">
+    <branch hash="sha256:90572c626d8a708225560c42b4421f7941315247fa1679d4ef569bde7f4bb379" module="gcr/3.20/gcr-3.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="1324216" version="3.20.0"/>
+    <if condition-unset="x11">
+      <autogenargs value="--without-gtk"/>
+    </if>
+    <dependencies>
+      <dep package="gnome-common"/>
+      <dep package="glib"/>
+      <dep package="libgcrypt"/>
+      <dep package="libtasn1"/>
+      <dep package="p11-kit"/>
+      <dep package="vala"/>
+      <if condition-set="x11">
+        <dep package="gtk+-3"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests" id="gdk-pixbuf">
+    <branch hash="sha256:7ace06170291a1f21771552768bace072ecdea9bd4a02f7658939b9a314c40fc" module="gdk-pixbuf/2.36/gdk-pixbuf-2.36.5.tar.xz" repo="https://download.gnome.org/sources/" size="5165640" version="2.36.5"/>
+    <if condition-set="macos">
+      <autogenargs value="--without-libtiff"/>
+    </if>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk-doc"/>
+      <dep package="libjpeg"/>
+      <dep package="libpng"/>
+      <dep package="libtiff"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--without-libavformat --without-jasper" id="gegl">
+    <branch hash="sha256:09f5e2e6899697641d4660e3e274aed696f5bacc96ba389ac77674ee1156590a" module="0.3/gegl-0.3.14.tar.bz2" repo="http://ftp.gimp.org/pub/gegl/" size="5985306" version="0.3.14"/>
+    <dependencies>
+      <dep package="babl"/>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="pango"/>
+      <dep package="libjpeg"/>
+      <dep package="libpng"/>
+      <dep package="libraw"/>
+      <dep package="librsvg"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-systemdsystemunitdir=no" id="geoclue">
+    <branch hash="sha256:78162d33a2d42477ec241db7fc082439b0e0f9a791eb3a41e5a2aa1eae9145a1" module="geoclue-2.4.5.tar.xz" repo="http://www.freedesktop.org/software/geoclue/releases/2.4/" size="368140" version="2.4.5"/>
+    <if condition-unset="linux">
+      <autogenargs value="--disable-3g-source --disable-modem-gps-source --disable-cdma-source"/>
+    </if>
+    <if condition-set="macos">
+      <autogenargs value="--disable-nmea-source"/>
+    </if>
+    <branch repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="json-glib"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <if condition-set="linux">
+        <dep package="ModemManager"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="geocode-glib">
+    <branch hash="sha256:f6b536a3b225ede73ef0592ad841640c5cde2a0e4bf3f416c893e8262b1dd7dc" module="geocode-glib/3.23/geocode-glib-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="413460" version="3.23.90"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="json-glib"/>
+      <dep package="libsoup"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk-doc"/>
+    </dependencies>
+  </autotools>
+  <autotools autogen-sh="autoreconf" id="geoip" skip-autogen="never">
+    <pkg-config/>
+    <branch hash="sha256:0ae1c95e69ad627d3a45cb897f79ce0c30f13fcd4b4a0dda073be0c9552521b3" module="maxmind/geoip-api-c/releases/download/v${version}/GeoIP-${version}.tar.gz" repo="github-tar" version="1.6.5"/>
+  </autotools>
+  <autotools autogen-sh="configure" id="gettext">
+    <branch hash="sha256:105556dbc5c3fbbc2aa0edb46d22d055748b6f5c7cd7a8d99f8e7eb84e938be4" module="gettext/gettext-0.19.8.1.tar.xz" repo="ftp.gnu.org" size="7209808" version="0.19.8.1"/>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests --disable-libmount" id="glib">
+    <branch hash="sha256:fec5483099c8309c4b4c06cd88eb37f464f0f4642bdc225344cd497fe25abe75" module="glib/2.51/glib-2.51.5.tar.xz" repo="https://download.gnome.org/sources/" size="7654328" version="2.51.5"/>
+    <if condition-set="freebsd">
+      <autogenargs value="--disable-dtrace --with-libiconv=gnu"/>
+    </if>
+    <if condition-set="macos">
+      <autogenargs value="--with-pcre=internal"/>
+    </if>
+    <dependencies>
+      <dep package="gettext"/>
+      <dep package="gtk-doc"/>
+      <dep package="libffi"/>
+      <dep package="zlib"/>
+      <if condition-unset="macos">
+        <dep package="libpcre"/>
+      </if>
+    </dependencies>
+    <after>
+      <if condition-unset="macos">
+        <dep package="shared-mime-info"/>
+      </if>
+    </after>
+  </autotools>
+  <autotools id="glibmm-2.4" supports-non-srcdir-builds="no">
+    <branch hash="sha256:df726e3c6ef42b7621474b03b644a2e40ec4eef94a1c5a932c1e740a78f95e94" module="glibmm/2.50/glibmm-2.50.0.tar.xz" repo="https://download.gnome.org/sources/" size="6435208" version="2.50.0"/>
+    <branch checkoutdir="glibmm-2.4" module="glibmm" revision="glibmm-2-50"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsigcplusplus-2.0"/>
+    </dependencies>
+  </autotools>
+  <autotools id="glibmm" supports-non-srcdir-builds="no">
+    <branch hash="sha256:8386e668f13161b5b1027d8d61754d8c6a73a7098876c317cb50365fdc9b976a" module="glibmm/2.51/glibmm-2.51.5.tar.xz" repo="https://download.gnome.org/sources/" size="6380332" version="2.51.5"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsigcplusplus"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-common">
+    <branch hash="sha256:22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf" module="gnome-common/3.18/gnome-common-3.18.0.tar.xz" repo="https://download.gnome.org/sources/" size="155804" version="3.18.0"/>
+  </autotools>
+  <autotools id="gnome-online-accounts" supports-non-srcdir-builds="no">
+    <branch hash="sha256:9b1c22bb8a86d7bab2340cd3414df2648a6e53793ff24e0dd22f925ebb9adc18" module="gnome-online-accounts/3.23/gnome-online-accounts-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="1404420" version="3.23.91"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="WebKit"/>
+      <dep package="librest"/>
+      <dep package="libsoup"/>
+      <dep package="libsecret"/>
+      <dep package="json-glib"/>
+      <dep package="libsecret"/>
+      <dep package="libxml2"/>
+      <dep package="telepathy-glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-online-miners">
+    <branch hash="sha256:bf51666866527b236d980fa3a0d036581a85987c59d604566ccb3ad685dd8bb8" module="gnome-online-miners/3.22/gnome-online-miners-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="272832" version="3.22.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="grilo"/>
+      <dep package="libgdata"/>
+      <dep package="libgfbgraph"/>
+      <dep package="libzapojit"/>
+      <dep package="tracker"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-video-effects">
+    <branch hash="sha256:5a7ee0f5ade4b7d921f1b99f3b97d7d7bb830f2fef0f1daee20a7a1867708219" module="gnome-video-effects/0.4/gnome-video-effects-0.4.3.tar.xz" repo="https://download.gnome.org/sources/" size="142100" version="0.4.3"/>
+    <dependencies>
+      <dep package="gstreamer"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests" id="gjs">
+    <branch hash="sha256:da02ea6b75459a9fd10e7d664c94befcdfa6e3c79138f54b5869b27b8a2da9cb" module="gjs/1.47/gjs-1.47.92.tar.xz" repo="https://download.gnome.org/sources/" size="605416" version="1.47.92"/>
+    <if condition-set="coverage">
+      <autogenargs value="--enable-coverage"/>
+    </if>
+    <dependencies>
+      <dep package="dbus-glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="mozjs38"/>
+      <if condition-set="coverage">
+        <dep package="lcov"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-python=python3" id="gobject-introspection">
+    <branch hash="sha256:62c31bd10a8a32b51f43b8e6ec8784ad7a029ccdf06beb3f272d468dfa7bbdd2" module="gobject-introspection/1.51/gobject-introspection-1.51.5.tar.xz" repo="https://download.gnome.org/sources/" size="1400896" version="1.51.5"/>
+    <dependencies>
+      <dep package="bison"/>
+      <dep package="flex"/>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="python3-devel"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gom">
+    <branch hash="sha256:bce8f0f94af6ff7847b853580ba6baebbab8ae531cedb0c78a5c473f39c758fd" module="gom/0.3/gom-0.3.2.tar.xz" repo="https://download.gnome.org/sources/" size="410300" version="0.3.2"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="sqlite3"/>
+      <dep package="gdk-pixbuf"/>
+    </dependencies>
+  </autotools>
+  <autotools id="grilo">
+    <branch hash="sha256:5c874222c7bdf42490cd56765a593c41407247706bb1f24a1bd5d007aa38a0e3" module="grilo/0.3/grilo-0.3.3.tar.xz" repo="https://download.gnome.org/sources/" size="641440" version="0.3.3"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="totem-pl-parser"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+    </dependencies>
+    <suggests>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+    </suggests>
+  </autotools>
+  <autotools id="grilo-plugins">
+    <branch hash="sha256:990282a518968c52f6a67b96c6b708e236a59da1c7c920ed45e6316ab49ddeb5" module="grilo-plugins/0.3/grilo-plugins-0.3.4.tar.xz" repo="https://download.gnome.org/sources/" size="1879324" version="0.3.4"/>
+    <dependencies>
+      <dep package="grilo"/>
+      <dep package="libxml2"/>
+      <dep package="totem-pl-parser"/>
+    </dependencies>
+    <suggests>
+      <dep package="avahi"/>
+      <dep package="gmime3"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gom"/>
+      <dep package="gssdp"/>
+      <dep package="gupnp"/>
+      <dep package="gupnp-av"/>
+      <dep package="json-glib"/>
+      <dep package="libarchive"/>
+      <dep package="libdmapsharing"/>
+      <dep package="libgcrypt"/>
+      <dep package="libgdata"/>
+      <dep package="libmediaart"/>
+      <dep package="liboauth"/>
+      <dep package="librest"/>
+      <dep package="libsoup"/>
+      <dep package="sqlite3"/>
+      <dep package="tracker"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-gtk-doc" id="gsound">
+    <branch hash="sha256:bba8ff30eea815037e53bee727bbd5f0b6a2e74d452a7711b819a7c444e78e53" module="gsound/1.0/gsound-1.0.2.tar.xz" repo="https://download.gnome.org/sources/" size="282068" version="1.0.2"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="libcanberra"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gspell">
+    <branch hash="sha256:b9f798599cd4f785709c0de95614c99603b3649accaf356dd4031522405bc212" module="gspell/1.3/gspell-1.3.3.tar.xz" repo="https://download.gnome.org/sources/" size="408104" version="1.3.3"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="enchant"/>
+      <dep package="iso-codes"/>
+      <if condition-set="macos">
+        <dep package="gtk-mac-integration"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gssdp" makeargs="CFLAGS=-Wno-error">
+    <branch hash="sha256:601d67f40bc28c067742b7c46f3018da96b364fd3e83f30ddac6e190e323d2e1" module="gssdp/1.0/gssdp-1.0.1.tar.xz" repo="https://download.gnome.org/sources/" size="312336" version="1.0.1"/>
+    <branch revision="gssdp_1.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-tests --disable-fatal-warnings" id="gstreamer" supports-non-srcdir-builds="no">
+    <branch hash="sha256:50c2f5af50a6cc6c0a3f3ed43bdd8b5e2bff00bacfb766d4be139ec06d8b5218" module="gstreamer-1.10.4.tar.xz" repo="http://gstreamer.freedesktop.org/src/gstreamer/" size="3797376" version="1.10.4"/>
+    <branch checkoutdir="gstreamer" module="gstreamer" repo="gstreamer.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="graphene">
+    <branch hash="sha256:c3a9910f8dd298c1459d1f3c699ddf2e7440f9e561bfcbef59ae784400e27b5d" module="graphene/1.6/graphene-1.6.0.tar.xz" repo="https://download.gnome.org/sources/" size="421228" version="1.6.0"/>
+    <branch checkoutdir="graphene" module="ebassi/graphene.git" repo="github.com"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-fatal-warnings" id="gst-plugins-bad" supports-non-srcdir-builds="no">
+    <branch hash="sha256:23ddae506b3a223b94869a0d3eea3e9a12e847f94d2d0e0b97102ce13ecd6966" module="gst-plugins-bad-1.10.4.tar.xz" repo="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" size="4738824" version="1.10.4"/>
+    <branch checkoutdir="gst-plugins-bad" module="gst-plugins-bad" repo="gstreamer.freedesktop.org"/>
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+    <suggests>
+      <dep package="graphene"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-fatal-warnings" id="gst-plugins-base" supports-non-srcdir-builds="no">
+    <branch hash="sha256:f6d245b6b3d4cb733f81ebb021074c525ece83db0c10e932794b339b8d935eb7" module="gst-plugins-base-1.10.4.tar.xz" repo="http://gstreamer.freedesktop.org/src/gst-plugins-base/" size="3059368" version="1.10.4"/>
+    <branch checkoutdir="gst-plugins-base" module="gst-plugins-base" repo="gstreamer.freedesktop.org"/>
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gtk+-3"/>
+      <dep package="iso-codes"/>
+    </dependencies>
+    <suggests>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-fatal-warnings" id="gst-plugins-good" supports-non-srcdir-builds="no">
+    <branch hash="sha256:8a86c61434a8c44665365bd0b3557a040937d1f44bf69caee4e9ea816ce74d7e" module="gst-plugins-good-1.10.4.tar.xz" repo="http://gstreamer.freedesktop.org/src/gst-plugins-good/" size="3420980" version="1.10.4"/>
+    <branch checkoutdir="gst-plugins-good" module="gst-plugins-good" repo="gstreamer.freedesktop.org"/>
+    <dependencies>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="flac"/>
+      <dep package="libvpx"/>
+      <dep package="taglib"/>
+      <dep package="wavpack"/>
+      <if condition-unset="macos">
+        <dep package="libv4l"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="pulseaudio"/>
+      <dep package="gdk-pixbuf"/>
+      <if condition-set="linux">
+        <dep package="gudev"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-broadway-backend --enable-installed-tests" id="gtk+">
+    <branch hash="sha256:86252223b3f829e92aa6f7e87d9b942909c1f6769b427c9d5daf11a1d416a43d" module="gtk+/3.89/gtk+-3.89.5.tar.xz" repo="https://download.gnome.org/sources/" size="20351652" version="3.89.5"/>
+    <if condition-set="x11">
+      <autogenargs value="--enable-x11-backend"/>
+    </if>
+    <if condition-set="wayland">
+      <autogenargs value="--enable-wayland-backend"/>
+    </if>
+    <if condition-set="mir">
+      <autogenargs value="--enable-mir-backend"/>
+    </if>
+    <if condition-set="quartz">
+      <autogenargs value="--enable-quartz-backend"/>
+    </if>
+    <dependencies>
+      <dep package="atk"/>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="pango"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gtk-doc"/>
+      <dep package="gobject-introspection"/>
+      <dep package="graphene"/>
+      <dep package="libepoxy"/>
+      <if condition-unset="quartz">
+        <dep package="at-spi2-atk"/>
+      </if>
+      <if condition-set="wayland">
+        <dep package="libxkbcommon"/>
+        <dep package="wayland"/>
+        <dep package="wayland-egl"/>
+        <dep package="wayland-protocols"/>
+      </if>
+      <if condition-set="mir">
+        <dep package="mir"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="desktop-file-utils"/>
+      <dep package="shared-mime-info"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-broadway-backend --enable-installed-tests" id="gtk+-3">
+    <branch hash="sha256:352a90b3d09256d597cb2768ee5d685285ccc284ff22adf19df16753a829c554" module="gtk+/3.22/gtk+-3.22.10.tar.xz" repo="https://download.gnome.org/sources/" size="18200804" version="3.22.10"/>
+    <if condition-set="x11">
+      <autogenargs value="--enable-x11-backend"/>
+    </if>
+    <if condition-set="wayland">
+      <autogenargs value="--enable-wayland-backend"/>
+    </if>
+    <if condition-set="mir">
+      <autogenargs value="--enable-mir-backend"/>
+    </if>
+    <if condition-set="quartz">
+      <autogenargs value="--enable-quartz-backend"/>
+    </if>
+    <branch checkoutdir="gtk+-3" module="gtk+" revision="gtk-3-22"/>
+    <dependencies>
+      <dep package="atk"/>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="pango"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gtk-doc"/>
+      <dep package="gobject-introspection"/>
+      <dep package="libepoxy"/>
+      <if condition-unset="quartz">
+        <dep package="at-spi2-atk"/>
+      </if>
+      <if condition-set="wayland">
+        <dep package="libxkbcommon"/>
+        <dep package="wayland"/>
+        <dep package="wayland-egl"/>
+        <dep package="wayland-protocols"/>
+      </if>
+      <if condition-set="mir">
+        <dep package="mir"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="desktop-file-utils"/>
+      <dep package="shared-mime-info"/>
+    </suggests>
+  </autotools>
+  <autotools id="gtk-doc">
+    <branch hash="sha256:1ea46ed400e6501f975acaafea31479cea8f32f911dca4dff036f59e6464fd42" module="gtk-doc/1.25/gtk-doc-1.25.tar.xz" repo="https://download.gnome.org/sources/" size="673184" version="1.25"/>
+    <dependencies>
+      <dep package="libxslt"/>
+      <dep package="yelp-tools"/>
+      <dep package="libtool"/>
+      <dep package="gettext"/>
+      <dep package="docbook-xml"/>
+      <dep package="docbook-xsl"/>
+      <dep package="cc"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-gtk=3.0 --enable-vala" id="gtk-vnc">
+    <branch hash="sha256:3c2eae7c9053338939a32c9987156a12b802ffd5c7f80702ba8d483dfc6d483e" module="gtk-vnc/0.7/gtk-vnc-0.7.0.tar.xz" repo="https://download.gnome.org/sources/" size="448004" version="0.7.0"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="pulseaudio"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gtkmm">
+    <branch hash="sha256:fa762d061c58b281e9dc3c2dc4c4965b5d3732df36ea40bc827b8e7275b27e55" module="gtkmm/3.89/gtkmm-3.89.4.tar.xz" repo="https://download.gnome.org/sources/" size="10708120" version="3.89.4"/>
+    <dependencies>
+      <dep package="cairomm"/>
+      <dep package="pangomm"/>
+      <dep package="atkmm"/>
+      <dep package="gtk+"/>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gtkmm-3">
+    <branch hash="sha256:05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5" module="gtkmm/3.22/gtkmm-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="12320816" version="3.22.0"/>
+    <branch checkoutdir="gtkmm-3" module="gtkmm" revision="gtkmm-3-22"/>
+    <dependencies>
+      <dep package="cairomm-1.0"/>
+      <dep package="pangomm-1.4"/>
+      <dep package="atkmm-1.6"/>
+      <dep package="gtk+-3"/>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gtksourceview">
+    <branch hash="sha256:57f25de7de49afd69a7e763dfc270973658f5883b1da214cfb9015f0daca4038" module="gtksourceview/3.99/gtksourceview-3.99.3.tar.xz" repo="https://download.gnome.org/sources/" size="1602496" version="3.99.3"/>
+    <dependencies>
+      <dep package="libxml2"/>
+      <dep package="shared-mime-info"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+    <suggests>
+      <dep package="glade"/>
+    </suggests>
+  </autotools>
+  <autotools id="gtksourceview-3">
+    <branch hash="sha256:a4c07be07ec0e6dc90ef6a1e6eeafbb1aef21c866c25bd8a4e5ba67d950eb996" module="gtksourceview/3.23/gtksourceview-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="1623848" version="3.23.91"/>
+    <branch checkoutdir="gtksourceview-3" module="gtksourceview" revision="gnome-3-24"/>
+    <dependencies>
+      <dep package="libxml2"/>
+      <dep package="shared-mime-info"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+    <suggests>
+      <dep package="glade"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--with-context-manager=network-manager" id="gupnp">
+    <branch hash="sha256:934584cc1b361bf251a5ac271ffb1995a3c6426ce44cb64f9c6d779f2af9a6d9" module="gupnp/1.0/gupnp-1.0.1.tar.xz" repo="https://download.gnome.org/sources/" size="421920" version="1.0.1"/>
+    <branch revision="gupnp-1.0"/>
+    <dependencies>
+      <dep package="gssdp"/>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="shared-mime-info"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools id="gupnp-av">
+    <branch hash="sha256:8038ef84dddbe7ad91c205bf91dddf684f072df8623f39b6555a6bb72837b85a" module="gupnp-av/0.12/gupnp-av-0.12.10.tar.xz" repo="https://download.gnome.org/sources/" size="370552" version="0.12.10"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gupnp"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools id="gupnp-dlna">
+    <branch hash="sha256:123e368227c11d5c17fc1aa76cbdaffa345355eb51d172cd39fc74a5b468ff6a" module="gupnp-dlna/0.10/gupnp-dlna-0.10.5.tar.xz" repo="https://download.gnome.org/sources/" size="329468" version="0.10.5"/>
+    <dependencies>
+      <dep package="libxml2"/>
+      <dep package="glib"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+    <suggests>
+      <dep package="gst-plugins-good"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--disable-python" id="gupnp-igd">
+    <branch hash="sha256:38c4a6d7718d17eac17df95a3a8c337677eda77e58978129ad3182d769c38e44" module="gupnp-igd/0.2/gupnp-igd-0.2.4.tar.xz" repo="https://download.gnome.org/sources/" size="272004" version="0.2.4"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gupnp"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="" id="harfbuzz">
+    <branch hash="sha256:d0e05438165884f21658154c709075feaf98c93ee5c694b951533ac425a9a711" module="harfbuzz-1.4.5.tar.bz2" repo="http://www.freedesktop.org/software/harfbuzz/release/" size="1474461" version="1.4.5"/>
+    <branch checkoutdir="harfbuzz" module="harfbuzz" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="c++"/>
+      <dep package="glib"/>
+      <dep package="libicu"/>
+      <dep package="ragel"/>
+    </dependencies>
+  </autotools>
+  <autotools check-target="false" id="hicolor-icon-theme" supports-non-srcdir-builds="no">
+    <branch hash="sha256:9cc45ac3318c31212ea2d8cb99e64020732393ee7630fa6c1810af5f987033cc" module="hicolor-icon-theme-0.15.tar.xz" repo="icon-theme.freedesktop.org" size="51056" version="0.15"/>
+  </autotools>
+  <autotools autogenargs="--disable-tests --disable-gconf --enable-dconf --disable-memconf --disable-ui GSETTINGS_SCHEMA_CONVERT=/usr/bin/false --with-python=python3 --disable-emoji-dict" id="ibus" supports-non-srcdir-builds="no">
+    <branch hash="sha256:a42b40fe4642f36bf2a6f0b4649f54f4043812d6bfee4faca38117799a009d3c" module="ibus/ibus/releases/download/${version}/ibus-${version}.tar.gz" repo="github-tar" version="1.5.14"/>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="dconf"/>
+      <dep package="iso-codes"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-private-png=yes --with-python=python3" id="ibus-anthy" supports-non-srcdir-builds="no">
+    <branch hash="sha256:035c636bc884ff3131bb75aee6ec58db938d3797344687a2eb5f18542801896e" module="ibus/ibus-anthy/releases/download/${version}/ibus-anthy-${version}.tar.gz" repo="github-tar" version="1.5.6"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="ibus"/>
+      <dep package="anthy"/>
+    </dependencies>
+  </autotools>
+  <autotools autogen-sh="configure" id="ibus-hangul" supports-non-srcdir-builds="no">
+    <branch hash="sha256:a22d4030bb20f73914a9d8a28c71b823123a5d1902a30f8328111af50f4f1788" module="choehwanjin/ibus-hangul/releases/download/${version}/ibus-hangul-${version}.tar.gz" repo="github-tar" version="1.5.0"/>
+    <dependencies>
+      <dep package="ibus"/>
+      <dep package="libhangul"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-lua-extension --with-python=python3" id="ibus-libpinyin" supports-non-srcdir-builds="no">
+    <branch checkoutdir="ibus-libpinyin-${version}" hash="sha256:c8f9fbd374273f6210afb6e647dac4574dd0a7c3c4d8d57d2e8592c33a25296d" module="libpinyin/ibus-libpinyin/archive/${version}.tar.gz" repo="github-tar" version="1.8.0"/>
+    <dependencies>
+      <dep package="ibus"/>
+      <dep package="libpinyin"/>
+      <dep package="sqlite3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="iso-codes">
+    <pkg-config/>
+    <branch hash="sha256:5222f79d92ac021a56c7080616c13655c50f7b1ff1a31ec0308da14a684ad77f" module="iso-codes-3.51.tar.xz" repo="iso-codes" size="3626932" version="3.51"/>
+  </autotools>
+  <autotools autogenargs="--enable-installed-tests" id="json-glib">
+    <branch hash="sha256:958fa59909ef28399c811aff29a5340b330b20660ca3586b4c5aa3a53997776c" module="json-glib/1.2/json-glib-1.2.6.tar.xz" repo="https://download.gnome.org/sources/" size="601188" version="1.2.6"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools id="libchamplain">
+    <branch hash="sha256:54721a210bdef6d73c5192ed83542023117bf5d7441257e7a7a9f8c05550b874" module="libchamplain/0.12/libchamplain-0.12.15.tar.xz" repo="https://download.gnome.org/sources/" size="616692" version="0.12.15"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="clutter"/>
+      <dep package="gtk+-3"/>
+      <dep package="sqlite3"/>
+    </dependencies>
+    <suggests>
+      <dep package="libsoup"/>
+      <dep package="clutter-gtk"/>
+    </suggests>
+  </autotools>
+  <autotools id="libcroco" supports-non-srcdir-builds="no">
+    <branch hash="sha256:132b528a948586b0dfa05d7e9e059901bca5a3be675b6071a90a90b81ae5a056" module="libcroco/0.6/libcroco-0.6.11.tar.xz" repo="https://download.gnome.org/sources/" size="477312" version="0.6.11"/>
+    <if condition-unset="gnu-elf">
+      <autogenargs value="--disable-Bsymbolic"/>
+    </if>
+    <pkg-config/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgdata">
+    <branch hash="sha256:8a663ef314a6d20b73c762072e0c1353fa7ec1ca3c2dee6fb85927cbda0d44fd" module="libgdata/0.17/libgdata-0.17.7.tar.xz" repo="https://download.gnome.org/sources/" size="1448528" version="0.17.7"/>
+    <pkg-config/>
+    <dependencies>
+      <dep package="json-glib"/>
+      <dep package="gcr"/>
+      <dep package="glib"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gobject-introspection"/>
+      <dep package="libxml2"/>
+      <dep package="libsoup"/>
+      <dep package="liboauth"/>
+      <dep package="uhttpmock"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgee" supports-non-srcdir-builds="no">
+    <branch hash="sha256:ea2dbc952ffd2c220cace083a0fdf91c67a9de8a031526cdb9e3dbc4c8e45670" module="libgee/0.19/libgee-0.19.91.tar.xz" repo="https://download.gnome.org/sources/" size="678656" version="0.19.91"/>
+    <pkg-config/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgepub">
+    <branch hash="sha256:5666a1c4d186d205bd2d91b71d4c1cd5426025569114a765dd913a564f149ff4" module="libgepub/0.4/libgepub-0.4.tar.xz" repo="https://download.gnome.org/sources/" size="246016" version="0.4"/>
+    <pkg-config/>
+    <branch checkoutdir="libgepub" module="danigm/libgepub.git" repo="github.com"/>
+    <dependencies>
+      <dep package="WebKit"/>
+      <dep package="libsoup"/>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="libarchive"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgnomekbd">
+    <branch hash="sha256:4efdb6b8ec92f04caced710b5edb285fb27715059ed6ca5e100b6933999a93de" module="libgnomekbd/3.22/libgnomekbd-3.22.0.1.tar.xz" repo="https://download.gnome.org/sources/" size="450572" version="3.22.0.1"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="libxklavier"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgfbgraph">
+    <branch hash="sha256:da1179083cde2b649d7491c745250a00d292e390fd620b7dd2dd95a122dae0b6" module="gfbgraph/0.2/gfbgraph-0.2.3.tar.xz" repo="https://download.gnome.org/sources/" size="270772" version="0.2.3"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="json-glib"/>
+      <dep package="librest"/>
+      <dep package="libsoup"/>
+      <dep package="gnome-online-accounts"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgovirt">
+    <branch hash="sha256:0b2d5f6b108df6d048417b689cbb592999f44629abd23da338ba5e92e1cfc982" module="libgovirt/0.3/libgovirt-0.3.4.tar.xz" repo="https://download.gnome.org/sources/" size="304048" version="0.3.4"/>
+    <dependencies>
+      <dep package="librest"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgrss">
+    <branch hash="sha256:6709c0f630a915ea7d5f1ac88ac173ef974d8d7406f43bd4be70d3e71fd554d9" module="libgrss/0.7/libgrss-0.7.0.tar.xz" repo="https://download.gnome.org/sources/" size="362360" version="0.7.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--without-bonobo --without-gnome-vfs" id="libgsf">
+    <branch hash="sha256:150b98586a1021d5c49b3d4d065d0aa3e3674ae31db131af5372499d2d3f08d3" module="libgsf/1.14/libgsf-1.14.41.tar.xz" repo="https://download.gnome.org/sources/" size="616944" version="1.14.41"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+    </dependencies>
+    <suggests>
+      <dep package="gdk-pixbuf"/>
+    </suggests>
+  </autotools>
+  <autotools id="libgtop">
+    <branch hash="sha256:0908b014ff34df648f696e8cc9e0c3a21c569fc38f4f2814e726af9812f923e1" module="libgtop/2.35/libgtop-2.35.92.tar.xz" repo="https://download.gnome.org/sources/" size="726136" version="2.35.92"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="texinfo"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgusb">
+    <branch hash="sha256:7320bdcd0ab1750d314fa86f48bd2cc186b9e33332314403779af9772fedde14" module="libgusb-0.2.9.tar.xz" repo="http://people.freedesktop.org/~hughsient/releases/" size="290972" version="0.2.9"/>
+    <branch checkoutdir="libgusb" module="hughsie/libgusb.git" repo="github.com"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+      <dep package="libusb1"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgweather">
+    <branch hash="sha256:7dcdc555c48461d07a198bc44e0e6ed39105d8513b12fa97c4590f5b2d912fc2" module="libgweather/3.20/libgweather-3.20.4.tar.xz" repo="https://download.gnome.org/sources/" size="3342220" version="3.20.4"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="libxml2"/>
+      <dep package="geocode-glib"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libsoup"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libgxps">
+    <branch hash="sha256:3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0" module="libgxps/0.2/libgxps-0.2.5.tar.xz" repo="https://download.gnome.org/sources/" size="346532" version="0.2.5"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="lcms2"/>
+      <dep package="libarchive"/>
+    </dependencies>
+  </autotools>
+  <meson id="libhttpseverywhere">
+    <branch hash="sha256:235f5b7f96188d800470871774e31696fbde085b63f65bd71434af8e9e6ac8aa" module="libhttpseverywhere/0.2/libhttpseverywhere-0.2.10.tar.xz" repo="https://download.gnome.org/sources/" size="1386952" version="0.2.10"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="json-glib"/>
+      <dep package="libarchive"/>
+      <dep package="libgee"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="sqlite3"/>
+      <dep package="vala"/>
+    </dependencies>
+  </meson>
+  <autotools id="libinput">
+    <branch hash="sha256:6235cee64e030902b370e4d5c7d4b51c3ed78d63f05c3d26d40f9bdc2e56a89d" module="libinput-1.6.902.tar.xz" repo="http://www.freedesktop.org/software/libinput/" size="926396" version="1.6.902"/>
+    <branch checkoutdir="libinput" module="wayland/libinput.git" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="libevdev"/>
+      <dep package="libudev"/>
+      <dep package="libwacom"/>
+      <dep package="mtdev"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libmbim">
+    <branch hash="sha256:ca8d52a95a18cbabae8f15f83f1572316e888b6504f946e6645d24405127ab5b" module="libmbim-1.14.0.tar.xz" repo="http://www.freedesktop.org/software/libmbim/" size="401460" version="1.14.0"/>
+    <branch module="libmbim/libmbim.git" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="gudev"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-qt" id="libmediaart">
+    <branch hash="sha256:5b14aa4e0cc84eaec57b6cb28f39092d503fdaecf36d5d165fac37583b7fe949" module="libmediaart/1.9/libmediaart-1.9.1.tar.xz" repo="https://download.gnome.org/sources/" size="5826128" version="1.9.1"/>
+    <dependencies>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-gupnp" id="libnice" supports-non-srcdir-builds="no">
+    <pkg-config/>
+    <branch hash="sha256:9da7f09909902d535389d929c3e4d69129528fb18438a6c8565ec812d9904ddf" module="libnice-0.1.8.tar.gz" repo="nice.freedesktop.org" version="0.1.8"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gupnp-igd"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libnotify">
+    <branch hash="sha256:9cb4ce315b2655860c524d46b56010874214ec27e854086c1a1d0260137efc04" module="libnotify/0.7/libnotify-0.7.7.tar.xz" repo="https://download.gnome.org/sources/" size="285356" version="0.7.7"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-tests=no --enable-werror=no" id="libosinfo">
+    <branch hash="sha256:f7b425ecde5197d200820eb44401c5033771a5d114bd6390230de768aad0396b" module="libosinfo-1.0.0.tar.gz" repo="https://releases.pagure.org/libosinfo/" size="896212" version="1.0.0"/>
+    <branch module="libosinfo/libosinfo.git" repo="gitlab.com"/>
+    <dependencies>
+      <dep package="libsoup"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+      <dep package="wget"/>
+      <dep package="osinfo-db-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-dbm=KyotoCabinet" id="libpinyin">
+    <branch checkoutdir="libpinyin-${version}" hash="sha256:ca4a33f01fb4301cfad1f977276823f0172b1aa5736046a5c2ca73c474386e37" module="libpinyin/libpinyin/archive/${version}.tar.gz" repo="github-tar" version="1.6.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="kyotocabinet"/>
+    </dependencies>
+  </autotools>
+  <autotools id="osinfo-db-tools">
+    <branch hash="sha256:a141cd2fc07c30d84801b5dbf6b11f2c2e708b0e81216277d052ac0b57fe546b" module="osinfo-db-tools-1.1.0.tar.gz" repo="https://releases.pagure.org/libosinfo/" size="481935" version="1.1.0"/>
+    <branch module="libosinfo/osinfo-db-tools.git" repo="gitlab.com"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-python3" id="libpeas">
+    <branch hash="sha256:f392fffe2dc00072a51bb2a1b274224a06bdc5f9c3b3c0ac4816909e9933d354" module="libpeas/1.20/libpeas-1.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="557872" version="1.20.0"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="pygobject"/>
+    </dependencies>
+    <suggests>
+      <dep package="glade"/>
+    </suggests>
+  </autotools>
+  <autotools id="libqmi">
+    <branch hash="sha256:bdf2120c8dd7d54eb900596f307463d33b8efcc26b66b18ce9e37bf98699300b" module="libqmi-1.17.901.tar.xz" repo="http://www.freedesktop.org/software/libqmi/" size="866908" version="1.17.901"/>
+    <branch module="libqmi.git" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+    </dependencies>
+  </autotools>
+  <autotools id="librest">
+    <branch hash="sha256:e7b89b200c1417073aef739e8a27ff2ab578056c27796ec74f5886a5e0dff647" module="rest/0.8/rest-0.8.0.tar.xz" repo="https://download.gnome.org/sources/" size="334024" version="0.8.0"/>
+    <if condition-set="freebsd">
+      <autogenargs value="--with-ca-certificates=/usr/local/share/certs/ca-root-nss.crt"/>
+    </if>
+    <if condition-set="macos">
+      <autogenargs value="--without-ca-certificates"/>
+    </if>
+    <branch revision="librest-0-7"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-vala=yes" id="librsvg" supports-non-srcdir-builds="no">
+    <branch hash="sha256:d48bcf6b03fa98f07df10332fb49d8c010786ddca6ab34cbba217684f533ff2e" module="librsvg/2.40/librsvg-2.40.16.tar.xz" repo="https://download.gnome.org/sources/" size="560800" version="2.40.16"/>
+    <if condition-unset="gnu-elf">
+      <autogenargs value="--disable-Bsymbolic"/>
+    </if>
+    <branch revision="librsvg-2-40"/>
+    <dependencies>
+      <dep package="libxml2"/>
+      <dep package="glib"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gnome-common"/>
+      <dep package="libcroco"/>
+      <dep package="pango"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libsecret">
+    <branch hash="sha256:9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3" module="libsecret/0.18/libsecret-0.18.5.tar.xz" repo="https://download.gnome.org/sources/" size="508556" version="0.18.5"/>
+    <if condition-set="macos">
+      <autogenargs value="--disable-manpages"/>
+    </if>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+    <suggests>
+      <dep package="libgcrypt"/>
+    </suggests>
+  </autotools>
+  <autotools id="libsigcplusplus-2.0">
+    <branch hash="sha256:f843d6346260bfcb4426259e314512b99e296e8ca241d771d21ac64f28298d81" module="libsigc++/2.10/libsigc++-2.10.0.tar.xz" repo="https://download.gnome.org/sources/" size="3794612" version="2.10.0"/>
+    <branch checkoutdir="libsigcplusplus-2.0" module="libsigcplusplus" revision="libsigc++-2-10"/>
+    <dependencies>
+      <dep package="mm-common"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libsigcplusplus">
+    <branch hash="sha256:1d053813a455bd9157b01312d015f74fa39f33466961a66e844daeaee658f0f1" module="libsigc++/2.99/libsigc++-2.99.8.tar.xz" repo="https://download.gnome.org/sources/" size="923976" version="2.99.8"/>
+    <dependencies>
+      <dep package="mm-common"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-tls-check" id="libsoup">
+    <branch hash="sha256:ca1ca037e89e8bc7b782559f3ec5d89c9d0b836f505b2f95e008ed517fd6658f" module="libsoup/2.57/libsoup-2.57.1.tar.xz" repo="https://download.gnome.org/sources/" size="1824316" version="2.57.1"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="sqlite3"/>
+      <dep package="gobject-introspection"/>
+      <dep package="vala"/>
+    </dependencies>
+    <suggests>
+      <dep package="glib-networking"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-werror=no" id="libvirt-glib">
+    <branch hash="sha256:ca9158d01cc4d9e0218f94f8c9ee04ae367d8c3b4396daaebca2c4b89a2e8a47" module="libvirt-glib-1.0.0.tar.gz" repo="ftp://libvirt.org/libvirt/glib/" size="860450" version="1.0.0"/>
+    <branch module="libvirt-glib.git" repo="git.libvirt.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="libvirt"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libwacom">
+    <branch hash="sha256:a08ac59ff26dbdf5888a6ad7bd97a66741807cda6bb1c7e7f299a555129c3162" module="linuxwacom/files/libwacom/libwacom-${version}.tar.bz2" repo="sourceforge.net" size="473700" version="0.23"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gudev"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libzapojit">
+    <branch hash="sha256:3d25f99329105abb99d1e9651b0aa1842065456ea54c22970a7330e9f3d1c37e" module="libzapojit/0.0/libzapojit-0.0.3.tar.xz" repo="https://download.gnome.org/sources/" size="272108" version="0.0.3"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="json-glib"/>
+      <dep package="librest"/>
+      <dep package="libsoup"/>
+      <dep package="gnome-online-accounts"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libwnck">
+    <branch hash="sha256:1cb03716bc477058dfdf3ebfa4f534de3b13b1aa067fcd064d0b7813291cba72" module="libwnck/3.20/libwnck-3.20.1.tar.xz" repo="https://download.gnome.org/sources/" size="693932" version="3.20.1"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="startup-notification"/>
+    </dependencies>
+  </autotools>
+  <autotools id="libxkbcommon">
+    <branch hash="sha256:90bd7824742b9a6f52a6cf80e2cadd6f5349cf600a358d08260772615b89d19c" module="http://xkbcommon.org/download/libxkbcommon-${version}.tar.xz" repo="libxkbcommon" size="615504" version="0.5.0"/>
+    <dependencies>
+      <dep package="xkeyboard-config"/>
+      <dep package="xorg-macros"/>
+      <dep package="xorg-xproto"/>
+      <dep package="xorg-kbproto"/>
+      <dep package="libX11"/>
+      <dep package="xcb"/>
+      <dep package="xcb-xkb"/>
+    </dependencies>
+  </autotools>
+  <cmake cmakeargs="-DMIR_ENABLE_TESTS=0 -DMIR_PLATFORM=mesa" id="mir">
+    <branch hash="sha256:a907bb7e6cf4d5975bc02db8a7b0d6e2f668527e6d38ae402ec8b87a8ca0c5f1" module="0.8/${version}/+download/mir-${version}.tar.bz2" repo="mir" size="1047629" version="0.8.0">
+      <patch file="mir-gflags-noshutdown.patch" strip="1"/>
+      <patch file="mir-progressbar-example.patch" strip="1"/>
+    </branch>
+    <dependencies>
+      <dep package="boost"/>
+      <dep package="protobuf"/>
+      <dep package="mesa-libGLES"/>
+      <dep package="google-glog"/>
+      <dep package="google-gflags"/>
+      <dep package="gbm"/>
+      <dep package="egl"/>
+      <dep package="glm"/>
+      <dep package="lttng-ust"/>
+      <dep package="lcov"/>
+      <dep package="libudev"/>
+      <dep package="libxkbcommon"/>
+    </dependencies>
+  </cmake>
+  <autotools id="mm-common">
+    <branch hash="sha256:16c0e2bc196b67fbc145edaecb5dbe5818386504fe5703de27002d77140fa217" module="mm-common/0.9/mm-common-0.9.10.tar.xz" repo="https://download.gnome.org/sources/" size="266372" version="0.9.10"/>
+  </autotools>
+  <autotools autogenargs="--with-udev-base-dir=${libdir}/udev --with-systemdsystemunitdir=no --disable-more-warnings" id="ModemManager">
+    <branch hash="sha256:cdd5b4cb1e4d7643643a28ccbfc4bb354bfa9cb89a77ea160ebdf7926171c668" module="ModemManager-1.6.4.tar.xz" repo="http://www.freedesktop.org/software/ModemManager/" size="1464276" version="1.6.4"/>
+    <branch checkoutdir="ModemManager" module="ModemManager/ModemManager.git" repo="git.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="dbus-glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="polkit-gobject"/>
+      <dep package="gudev"/>
+      <dep package="ppp"/>
+      <dep package="libmbim"/>
+      <dep package="libqmi"/>
+    </dependencies>
+  </autotools>
+  <autotools autogen-sh="configure" autogenargs="--enable-posix-nspr-emulation --with-system-zlib --enable-system-ffi --with-system-icu --with-intl-api" id="mozjs38" supports-non-srcdir-builds="no">
+    <pkg-config/>
+    <branch checkoutdir="mozjs-38.0.0" hash="sha256:01994c758174bc173bcf4960f05ecb4da21014f09641a63b2952bbf9eeaa8b5c" module="mozjs-38.2.1.rc0.tar.bz2" repo="people.mozilla.org" source-subdir="js/src" version="38.2.1">
+      <patch file="mozjs38-fix-tracelogger.patch" strip="1"/>
+      <patch file="mozjs38-release-number.patch" strip="1"/>
+      <patch file="mozjs38-shell-version.patch" strip="1"/>
+      <patch file="mozjs38-pkg-config-version.patch" strip="1"/>
+      <patch file="mozjs38-install-name.patch" strip="1"/>
+      <patch file="mozjs38-copy-headers.patch" strip="1"/>
+      <patch file="mozjs38-add-bracket.patch" strip="1"/>
+      <patch file="mozjs38-1269317.patch" strip="1"/>
+    </branch>
+    <dependencies>
+      <dep package="libffi"/>
+      <dep package="libicu"/>
+      <dep package="python2"/>
+      <dep package="zlib"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-cairo --enable-installed-tests" id="pango">
+    <branch hash="sha256:f8fdc5fc66356dc4edf915048cceeee065a0e0cb70b3b2598f62bda320129a3e" module="pango/1.40/pango-1.40.4.tar.xz" repo="https://download.gnome.org/sources/" size="1062600" version="1.40.4"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="cairo"/>
+      <dep package="gtk-doc"/>
+      <dep package="gobject-introspection"/>
+      <if condition-set="x11">
+        <dep package="libXft"/>
+      </if>
+      <if condition-unset="quartz">
+        <dep package="harfbuzz"/>
+        <dep package="fontconfig"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="pangomm-1.4">
+    <branch hash="sha256:9762ee2a2d5781be6797448d4dd2383ce14907159b30bc12bf6b08e7227be3af" module="pangomm/2.40/pangomm-2.40.1.tar.xz" repo="https://download.gnome.org/sources/" size="810384" version="2.40.1"/>
+    <branch checkoutdir="pangomm-1.4" module="pangomm" revision="pangomm-2-40"/>
+    <dependencies>
+      <dep package="glibmm-2.4"/>
+      <dep package="cairomm-1.0"/>
+      <dep package="pango"/>
+      <dep package="atk"/>
+    </dependencies>
+  </autotools>
+  <autotools id="pangomm">
+    <branch hash="sha256:f05d90dcb54dda72b1db8fb618da19b5ac5f2d7275f604ec424e4db77e8230c7" module="pangomm/2.41/pangomm-2.41.1.tar.xz" repo="https://download.gnome.org/sources/" size="822068" version="2.41.1"/>
+    <dependencies>
+      <dep package="glibmm"/>
+      <dep package="cairomm"/>
+      <dep package="pango"/>
+      <dep package="atk"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-jit --enable-pcre2-8 --enable-pcre2-16 --enable-pcre2-32" id="pcre2">
+    <branch hash="sha256:c66a17509328a7251782691093e75ede7484a203ebc6bed3c08122b092ccd4e0" module="pcre2-${version}.tar.bz2" repo="pcre" size="1455359" version="10.21"/>
+  </autotools>
+  <autotools id="phodav">
+    <branch hash="sha256:080305dc9e804562f200ffc8c7d345c76754fce9cb01489dddb1b2c52c0557c1" module="phodav/2.2/phodav-2.2.tar.xz" repo="https://download.gnome.org/sources/" size="294216" version="2.2"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+      <dep package="avahi"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--with-python=python3" id="pyatspi2">
+    <branch hash="sha256:628f19cc5790b02ae6ec8580902683520087fba503c06c71257c572108cb5850" module="pyatspi/2.20/pyatspi-2.20.3.tar.xz" repo="https://download.gnome.org/sources/" size="297368" version="2.20.3"/>
+    <dependencies>
+      <dep package="pygobject"/>
+    </dependencies>
+    <suggests>
+      <dep package="at-spi2-core"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--with-python=python3" id="pygobject">
+    <branch hash="sha256:08b29cfb08efc80f7a8630a2734dec65a99c1b59f1e5771c671d2e4ed8a5cbe7" module="pygobject/3.22/pygobject-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="756820" version="3.22.0"/>
+    <dependencies>
+      <dep package="gnome-common"/>
+      <dep package="glib"/>
+      <dep package="py3cairo"/>
+      <dep package="python3-devel"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="sound-theme-freedesktop">
+    <branch hash="sha256:cb518b20eef05ec2e82dda1fa89a292c1760dc023aba91b8aa69bafac85e8a14" module="~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2" repo="people.freedesktop.org" size="478237" version="0.8"/>
+  </autotools>
+  <autotools autogenargs="--with-espeak" id="speech-dispatcher">
+    <branch hash="sha256:0a6ce544cfbac8592a8ea08e3ab24c389153904ea51c6fd68756cea52de9efa2" module="speech-dispatcher-${version}.tar.gz" repo="speech-dispatcher" version="0.8"/>
+    <dependencies>
+      <dep package="dotconf"/>
+      <dep package="espeak"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-smartcard --enable-vala --enable-webdav --enable-static" id="spice-gtk">
+    <if condition-set="freebsd">
+      <autogenargs value="SSL_CFLAGS=' ' SSL_LIBS='-lssl -lcrypto' OPENSSL_CFLAGS=' ' OPENSSL_LIBS='-lssl -lcrypto'"/>
+    </if>
+    <branch hash="sha256:7daf33b786ab8ebc9fe6e7b11745100ee1ab66e61a5811d1d5aabe4d66eaaf39" module="gtk/spice-gtk-0.33.tar.bz2" repo="spice" size="1383927" version="0.33"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="cyrus-sasl"/>
+      <dep package="glib"/>
+      <dep package="gtk-doc"/>
+      <dep package="gtk+-3"/>
+      <dep package="libjpeg"/>
+      <dep package="openssl"/>
+      <dep package="opus"/>
+      <dep package="phodav"/>
+      <dep package="pixman"/>
+      <dep package="pulseaudio"/>
+      <dep package="spice-protocol"/>
+      <dep package="usbredir"/>
+      <dep package="vala"/>
+      <dep package="zlib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="spice-protocol">
+    <branch hash="sha256:17abdc2743b5d44b0f4423b61c44aafe9f2078c27218aeea78c2d02a5c409d03" module="releases/spice-protocol-0.12.12.tar.bz2" repo="spice" size="80628" version="0.12.12"/>
+    <dependencies/>
+  </autotools>
+  <autotools autogenargs="--enable-vala-bindings --disable-fatal-warnings" id="telepathy-glib" supports-non-srcdir-builds="no">
+    <branch hash="sha256:9e0df1d8f857e0270cf0b32e2d1ca5a24aa7282873361785d573f72ad7f7d5eb" module="telepathy-glib/telepathy-glib-0.24.1.tar.gz" repo="http://telepathy.freedesktop.org/releases/" size="3898149" version="0.24.1"/>
+    <pkg-config/>
+    <branch repo="telepathy.freedesktop.org"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="dbus"/>
+      <dep package="dbus-glib"/>
+      <dep package="libxslt"/>
+      <dep package="vala"/>
+    </dependencies>
+    <suggests>
+      <dep package="gobject-introspection"/>
+    </suggests>
+  </autotools>
+  <autotools id="telepathy-logger" supports-non-srcdir-builds="no">
+    <branch hash="sha256:8fcad534d653b1b365132c5b158adae947810ffbae9843f72dd1797966415dae" module="telepathy-logger/telepathy-logger-0.8.2.tar.bz2" repo="http://telepathy.freedesktop.org/releases/" size="562670" version="0.8.2"/>
+    <pkg-config/>
+    <branch repo="telepathy.freedesktop.org"/>
+    <dependencies>
+      <dep package="dbus"/>
+      <dep package="dbus-glib"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk-doc"/>
+      <dep package="libxml2"/>
+      <dep package="sqlite3"/>
+      <dep package="telepathy-glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="totem-pl-parser">
+    <branch hash="sha256:9c8285bc3131faa309d5cba5a919d5166abc2b8cc5a0c850fe861be8b14e089c" module="totem-pl-parser/3.10/totem-pl-parser-3.10.7.tar.xz" repo="https://download.gnome.org/sources/" size="1608864" version="3.10.7"/>
+    <dependencies>
+      <dep package="gnome-common"/>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gmime3"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+    </dependencies>
+    <suggests>
+      <dep package="libgcrypt"/>
+    </suggests>
+  </autotools>
+  <autotools autogenargs="--enable-miner-firefox=no --enable-miner-thunderbird=no --enable-miner-evolution=no --disable-nautilus-extension --disable-tracker-needle --disable-tracker-preferences --with-unicode-support=libicu --with-bash-completion-dir=${prefix}/share/bash-completion/completions" check-target="false" id="tracker" supports-non-srcdir-builds="no">
+    <branch hash="sha256:8c26b387e0858f5f2a654558e3b062c124688c07a88d48c9306f12411adb8a17" module="tracker/1.11/tracker-1.11.4.tar.xz" repo="https://download.gnome.org/sources/" size="5060344" version="1.11.4"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libgrss"/>
+      <dep package="libicu"/>
+      <dep package="libmediaart"/>
+      <dep package="libpng"/>
+      <dep package="libuuid"/>
+      <dep package="sqlite3"/>
+      <dep package="vala"/>
+      <if condition-set="linux">
+        <dep package="libseccomp"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="libsecret"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="upower"/>
+      <dep package="libgsf"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="poppler"/>
+      <dep package="totem-pl-parser"/>
+      <dep package="dconf"/>
+      <if condition-set="linux">
+        <dep package="NetworkManager"/>
+      </if>
+    </suggests>
+  </autotools>
+  <autotools id="uhttpmock" supports-non-srcdir-builds="no">
+    <branch hash="sha256:a6a34a011db142a98473b492039c84468d575f416689484f1f82a84927f17798" module="uhttpmock-0.5.1.tar.xz" repo="http://tecnocode.co.uk/downloads/uhttpmock/" size="310976" version="0.5.1"/>
+    <branch checkoutdir="uhttpmock" module="pwithnall/uhttpmock.git" repo="github.com"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+    </dependencies>
+  </autotools>
+  <autotools id="usbredir">
+    <branch hash="sha256:407e9e27a1369f01264d5501ffbe88935ddd7d5de675f5835db05dc9c9ac56f3" module="usbredir/usbredir-${version}.tar.bz2" repo="spice" version="0.7.1"/>
+    <dependencies>
+      <dep package="libusb1-1.0.9"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--enable-vapigen" id="vala" supports-non-srcdir-builds="no">
+    <branch hash="sha256:4175cdf476e048f7c7d2418e88cda752c4df0d8b9fdfb349e07cbad5e4f63489" module="vala/0.35/vala-0.35.90.tar.xz" repo="https://download.gnome.org/sources/" size="2831328" version="0.35.90"/>
+    <dependencies>
+      <dep package="bison"/>
+      <dep package="flex"/>
+      <dep package="glib"/>
+      <dep package="vala-bootstrap"/>
+    </dependencies>
+  </autotools>
+  <autotools id="wayland-protocols">
+    <branch hash="sha256:635f2a937d318f1fecb97b54074ca211486e38af943868dd0fa82ea38d091c1f" module="wayland-protocols-1.7.tar.xz" repo="http://wayland.freedesktop.org/releases/" size="113220" version="1.7"/>
+    <branch repo="wayland.freedesktop.org"/>
+  </autotools>
+  <autotools autogenargs="--disable-documentation" id="wayland">
+    <branch hash="sha256:69b052c031a61e89af7cc8780893d0da1e301492352aa449dee9345043e6fe51" module="wayland-1.13.0.tar.xz" repo="http://wayland.freedesktop.org/releases/" size="414508" version="1.13.0"/>
+    <branch repo="wayland.freedesktop.org"/>
+    <dependencies>
+      <dep package="libffi"/>
+      <dep package="doxygen"/>
+      <dep package="xmlto"/>
+    </dependencies>
+  </autotools>
+  <cmake cmakeargs="-DPORT=GTK -DCMAKE_BUILD_TYPE=Release -DENABLE_PLUGIN_PROCESS_GTK2=OFF" id="WebKit">
+    <if condition-unset="x11">
+      <cmakeargs value="-DENABLE_X11_TARGET=OFF"/>
+    </if>
+    <if condition-unset="wayland">
+      <cmakeargs value="-DENABLE_WAYLAND_TARGET=OFF"/>
+    </if>
+    <pkg-config/>
+    <branch hash="sha256:2aede64671a2ae5576bb43960d199d35d5a4e3e9b725d4d34a1004fc98f2eadc" module="webkitgtk-2.15.92.tar.xz" repo="webkitgtk.org" size="14683940" version="2.15.92"/>
+    <dependencies>
+      <dep package="c++"/>
+      <dep package="at-spi2-core"/>
+      <dep package="cairo"/>
+      <dep package="enchant"/>
+      <dep package="fontconfig"/>
+      <dep package="freetype2"/>
+      <dep package="geoclue"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gperf"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="gtk+-3"/>
+      <dep package="harfbuzz"/>
+      <dep package="hyphen"/>
+      <dep package="libicu"/>
+      <dep package="libjpeg"/>
+      <dep package="libnotify"/>
+      <dep package="libpng"/>
+      <dep package="libsecret"/>
+      <dep package="libsoup"/>
+      <dep package="libwebp"/>
+      <dep package="libxml2"/>
+      <dep package="libxslt"/>
+      <dep package="mesa-libGLES"/>
+      <dep package="pango"/>
+      <dep package="ruby"/>
+      <dep package="sqlite3"/>
+      <if condition-set="x11">
+        <dep package="libXcomposite"/>
+        <dep package="libXdamage"/>
+        <dep package="libXrender"/>
+        <dep package="libXt"/>
+      </if>
+      <if condition-set="wayland">
+        <dep package="wayland"/>
+      </if>
+    </dependencies>
+    <suggests>
+      <dep package="gst-plugins-bad"/>
+      <dep package="gst-plugins-good"/>
+    </suggests>
+  </cmake>
+  <autotools id="xorg-xproto">
+    <pkg-config/>
+    <branch hash="sha256:6cabc8ce3fa2b1a2427871167b62c24d5b08a58bd3e81ed7aaf08f2bf6dbcfed" module="releases/individual/proto/xproto-7.0.28.tar.gz" repo="xorg-tar" size="367523" version="7.0.28"/>
+  </autotools>
+  <autotools id="xtrans">
+    <pkg-config/>
+    <branch hash="sha256:b7a577c1b6c75030145e53b4793db9c88f9359ac49e7d771d4385d21b3e5945d" module="releases/individual/lib/xtrans-1.3.5.tar.gz" repo="xorg-tar" size="227536" version="1.3.5"/>
+  </autotools>
+  <autotools autogenargs="--enable-introspection=yes" id="vte" supports-non-srcdir-builds="no" uninstall-before-install="true">
+    <branch hash="sha256:46c6b8feac65d54de99e3f03b8d395d3e66f22efdba8b80ad6954757ea832784" module="vte/0.47/vte-0.47.90.tar.xz" repo="https://download.gnome.org/sources/" size="1004556" version="0.47.90"/>
+    <if condition-unset="gnu-elf">
+      <autogenargs value="--disable-Bsymbolic"/>
+    </if>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gnutls"/>
+      <dep package="pcre2"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="yelp-tools">
+    <branch hash="sha256:c6c1d65f802397267cdc47aafd5398c4b60766e0a7ad2190426af6c0d0716932" module="yelp-tools/3.18/yelp-tools-3.18.0.tar.xz" repo="https://download.gnome.org/sources/" size="210712" version="3.18.0"/>
+    <dependencies>
+      <dep package="libxslt"/>
+      <dep package="libxml2"/>
+      <dep package="yelp-xsl"/>
+      <dep package="itstool"/>
+      <dep package="xmllint"/>
+      <dep package="xsltproc"/>
+    </dependencies>
+  </autotools>
+  <autotools id="yelp-xsl">
+    <branch hash="sha256:dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0" module="yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz" repo="https://download.gnome.org/sources/" size="568400" version="3.20.1"/>
+    <dependencies>
+      <dep package="libxslt"/>
+      <dep package="libxml2"/>
+      <dep package="intltool"/>
+      <dep package="itstool"/>
+    </dependencies>
+  </autotools>
+  <autotools id="zenity">
+    <branch hash="sha256:1ecdfa1071d383b373b8135954b3ec38d402d671dcd528e69d144aff36a0e466" module="zenity/3.22/zenity-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1082088" version="3.22.0"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <repository href="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" name="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" type="tarball"/>
+  <repository href="https://download.gnome.org/sources/" name="https://download.gnome.org/sources/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/babl/" name="http://ftp.gimp.org/pub/babl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/colord/releases/" name="http://www.freedesktop.org/software/colord/releases/" type="tarball"/>
+  <repository href="http://people.freedesktop.org/~hughsient/releases/" name="http://people.freedesktop.org/~hughsient/releases/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/gegl/" name="http://ftp.gimp.org/pub/gegl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/geoclue/releases/2.4/" name="http://www.freedesktop.org/software/geoclue/releases/2.4/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gstreamer/" name="http://gstreamer.freedesktop.org/src/gstreamer/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" name="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-base/" name="http://gstreamer.freedesktop.org/src/gst-plugins-base/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-good/" name="http://gstreamer.freedesktop.org/src/gst-plugins-good/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/harfbuzz/release/" name="http://www.freedesktop.org/software/harfbuzz/release/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libinput/" name="http://www.freedesktop.org/software/libinput/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libmbim/" name="http://www.freedesktop.org/software/libmbim/" type="tarball"/>
+  <repository href="https://releases.pagure.org/libosinfo/" name="https://releases.pagure.org/libosinfo/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libqmi/" name="http://www.freedesktop.org/software/libqmi/" type="tarball"/>
+  <repository href="ftp://libvirt.org/libvirt/glib/" name="ftp://libvirt.org/libvirt/glib/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/ModemManager/" name="http://www.freedesktop.org/software/ModemManager/" type="tarball"/>
+  <repository href="http://telepathy.freedesktop.org/releases/" name="http://telepathy.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://tecnocode.co.uk/downloads/uhttpmock/" name="http://tecnocode.co.uk/downloads/uhttpmock/" type="tarball"/>
+  <repository href="http://wayland.freedesktop.org/releases/" name="http://wayland.freedesktop.org/releases/" type="tarball"/>
+</moduleset>

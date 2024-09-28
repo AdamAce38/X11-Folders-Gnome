@@ -1,0 +1,622 @@
+<?xml version="1.0" ?>
+<moduleset>
+  <repository href="https://download.gnome.org/sources/" name="gnome.org" type="tarball"/>
+  <repository href="http://ftp.gnu.org/gnu/" name="ftp.gnu.org" type="tarball"/>
+  <repository href="http://ostermiller.org/qqwing/" name="qqwing" type="tarball"/>
+  <repository href="https://github.com/" name="tarball.github.com" type="tarball"/>
+  <repository href="http://downloads.sourceforge.net/" name="downloads.sourceforge.net" type="tarball"/>
+  <repository href="http://freedesktop.org/software/" name="freedesktop.org" type="tarball"/>
+  <include href="gnome-suites-core-3.23.92.modules"/>
+  <autotools autogenargs="--disable-python" id="farstream" supports-non-srcdir-builds="no">
+    <branch hash="sha256:dad0ed43cf94e71df558c23825abe57db59d1ee8d970ffaec5e2dbc2e7acbf7d" module="farstream/releases/farstream/farstream-${version}.tar.gz" repo="freedesktop.org" version="0.2.7"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="libnice"/>
+    </dependencies>
+    <suggests>
+      <dep package="gupnp-igd"/>
+    </suggests>
+  </autotools>
+  <autotools id="gnome-code-assistance">
+    <branch hash="sha256:f6b7aae10afe150587c00d3db9e4d7503a489ca618930b9b6e3f81b5dafed353" module="gnome-code-assistance/3.16/gnome-code-assistance-3.16.1.tar.xz" repo="https://download.gnome.org/sources/" size="971072" version="3.16.1"/>
+    <dependencies>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-devel-docs">
+    <branch hash="sha256:6d03ae9918d6379eb1162045b82aa8a7fbb6ee660b4e69dae78f070115f0b36b" module="gnome-devel-docs/3.22/gnome-devel-docs-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="9298224" version="3.22.1"/>
+    <dependencies>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="guile">
+    <if condition-set="freebsd">
+      <autogenargs value="BDW_GC_CFLAGS=' ' BDW_GC_LIBS='-lgc-threaded'"/>
+    </if>
+    <pkg-config/>
+    <branch hash="sha256:aed0a4a6db4e310cbdfeb3613fa6f86fddc91ef624c1e3f8937a6304c69103e2" module="guile/guile-2.0.11.tar.xz" repo="ftp.gnu.org" size="4634060" version="2.0.11"/>
+    <dependencies>
+      <dep package="libunistring"/>
+      <if condition-unset="freebsd">
+        <dep package="gc"/>
+      </if>
+      <if condition-set="freebsd">
+        <dep package="gc-threaded"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="libgnome-games-support" supports-non-srcdir-builds="no">
+    <branch hash="sha256:a626396c72603add6bae1ab0b5bee1d58657cc7e232b1fe6fda746b960715ee7" module="libgnome-games-support/1.2/libgnome-games-support-1.2.1.tar.xz" repo="https://download.gnome.org/sources/" size="340664" version="1.2.1"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libgee"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <cmake cmakeargs="-DTHREADSAFE:BOOL=1" id="libgit2">
+    <branch checkoutdir="libgit2-${version}" hash="sha256:7ae8e699ff7ff9a1fa702249140ee31ea6fd556bf7968e84e38165870667bcb1" module="libgit2/libgit2/archive/v${version}.tar.gz" repo="tarball.github.com" version="0.25.1"/>
+    <dependencies>
+      <dep package="libssh2"/>
+    </dependencies>
+  </cmake>
+  <autotools id="libgit2-glib">
+    <branch hash="sha256:4a256b9acfb93ea70d37213a4083e2310e59b05f2c7595242fe3c239327bc565" module="libgit2-glib/0.25/libgit2-glib-0.25.0.tar.xz" repo="https://download.gnome.org/sources/" size="420500" version="0.25.0"/>
+    <dependencies>
+      <dep package="libgit2"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+    </dependencies>
+  </autotools>
+  <autotools id="nautilus-sendto">
+    <branch hash="sha256:51065c6e2601560a8bc507c7aee8e967dc6c6f355c6a05a1d4e7e1fe76b908e7" module="nautilus-sendto/3.8/nautilus-sendto-3.8.4.tar.xz" repo="https://download.gnome.org/sources/" size="380180" version="3.8.4"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="dbus-glib"/>
+      <dep package="evolution-data-server"/>
+      <dep package="nautilus"/>
+    </dependencies>
+    <suggests>
+      <dep package="gupnp-av"/>
+    </suggests>
+  </autotools>
+  <autotools id="qqwing">
+    <branch hash="sha256:1753736c31feea0085f5cfac33143743204f8a7e66b81ccd17e249ecafba802f" module="qqwing-${version}.tar.gz" repo="qqwing" size="352060" version="1.3.4"/>
+    <dependencies>
+      <dep package="c++"/>
+    </dependencies>
+  </autotools>
+  <autotools autogenargs="--disable-python" id="telepathy-farstream" supports-non-srcdir-builds="no">
+    <branch hash="sha256:6fa099f22d13a2a49240445a13e918928aef097675d76e5cc9f98ab496087e0a" module="telepathy-farstream/telepathy-farstream-0.6.2.tar.gz" repo="http://telepathy.freedesktop.org/releases/" size="601409" version="0.6.2"/>
+    <branch repo="telepathy.freedesktop.org"/>
+    <dependencies>
+      <dep package="telepathy-glib"/>
+      <dep package="farstream"/>
+    </dependencies>
+  </autotools>
+  <autotools id="accerciser">
+    <branch hash="sha256:883306274442c7ecc076b24afca5190c835c40871ded1b9790da69347e9ca3c5" module="accerciser/3.22/accerciser-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="3060756" version="3.22.0"/>
+    <dependencies>
+      <dep package="at-spi2-atk"/>
+      <dep package="intltool"/>
+      <dep package="pygobject"/>
+      <dep package="pyatspi2"/>
+      <dep package="yelp-tools"/>
+      <dep package="gtk+-3"/>
+      <dep package="py3cairo"/>
+    </dependencies>
+  </autotools>
+  <autotools id="dconf-editor">
+    <branch hash="sha256:fe60f25168b1ace5ee44a2c1eff6c1310d53e4a188e0e97734e9c06ff9e2b812" module="dconf-editor/3.23/dconf-editor-3.23.4.tar.xz" repo="https://download.gnome.org/sources/" size="493240" version="3.23.4"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="glib"/>
+      <dep package="dconf"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+    </dependencies>
+  </autotools>
+  <autotools id="devhelp">
+    <branch hash="sha256:1c74626246c2e45584f381f90ec154c08a615aa8aef0974bd9d8c89cb2715003" module="devhelp/3.23/devhelp-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="615528" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="gtk-doc"/>
+      <dep package="WebKit"/>
+    </dependencies>
+  </autotools>
+  <cmake cmakeargs="-DENABLE_LIBCRYPTUI=OFF -DENABLE_PST_IMPORT=OFF -DENABLE_YTNEF=OFF" id="evolution">
+    <branch hash="sha256:fbb766da630141a0b637e614611f998fd980826ab57da94af6297752213723b8" module="evolution/3.23/evolution-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="12114776" version="3.23.92"/>
+    <dependencies>
+      <dep package="atk"/>
+      <dep package="bogofilter"/>
+      <dep package="cairo"/>
+      <dep package="enchant"/>
+      <dep package="evolution-data-server"/>
+      <dep package="gcr"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gnome-autoar"/>
+      <dep package="gnome-desktop"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="gstreamer"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="highlight"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="libgcrypt"/>
+      <dep package="libgdata"/>
+      <dep package="libgweather"/>
+      <dep package="libical"/>
+      <dep package="libnotify"/>
+      <dep package="libsoup"/>
+      <dep package="libxml2"/>
+      <dep package="nspr"/>
+      <dep package="nss"/>
+      <dep package="openldap"/>
+      <dep package="shared-mime-info"/>
+      <dep package="spamassassin"/>
+      <dep package="WebKit"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+    <suggests>
+      <dep package="geoclue"/>
+      <dep package="geocode-glib"/>
+    </suggests>
+  </cmake>
+  <autotools id="ghex">
+    <branch hash="sha256:c67450f86f9c09c20768f1af36c11a66faf460ea00fbba628a9089a6804808d3" module="ghex/3.18/ghex-3.18.3.tar.xz" repo="https://download.gnome.org/sources/" size="1630720" version="3.18.3"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gitg" supports-non-srcdir-builds="no">
+    <branch hash="sha256:afb9903e33796ca5149651569280ce15dd53e7d38722146a91db408b9e426f54" module="gitg/3.23/gitg-3.23.90.tar.xz" repo="https://download.gnome.org/sources/" size="1688752" version="3.23.90"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtksourceview-3"/>
+      <dep package="gsettings-desktop-schemas"/>
+      <dep package="json-glib"/>
+      <dep package="libgee"/>
+      <dep package="libgit2-glib"/>
+      <dep package="libpeas"/>
+      <dep package="vala"/>
+      <dep package="gtkspell-3"/>
+      <dep package="libsoup"/>
+      <dep package="libsecret"/>
+    </dependencies>
+    <suggests>
+      <dep package="glade"/>
+      <dep package="pygobject"/>
+    </suggests>
+  </autotools>
+  <autotools id="glade">
+    <branch hash="sha256:82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe" module="glade/3.20/glade-3.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="3492928" version="3.20.0"/>
+    <if condition-set="macos">
+      <autogenargs value="--disable-man-pages"/>
+    </if>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="gnome-common"/>
+      <dep package="gtk-doc"/>
+      <dep package="gtk+-3"/>
+      <dep package="libxml2"/>
+      <dep package="yelp-tools"/>
+      <if condition-set="macos">
+        <dep package="gtk-mac-integration"/>
+      </if>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-builder">
+    <branch hash="sha256:4fca52a6ffa0d66454bed9b753b2409a69477ce5b8bbe5c46279285834696b09" module="gnome-builder/3.23/gnome-builder-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="4335888" version="3.23.92"/>
+    <dependencies>
+      <dep package="clang"/>
+      <dep package="devhelp"/>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="glib-networking"/>
+      <dep package="gnome-code-assistance"/>
+      <dep package="gspell"/>
+      <dep package="gtk+-3"/>
+      <dep package="gtksourceview-3"/>
+      <dep package="libgit2-glib"/>
+      <dep package="libpeas"/>
+      <dep package="librsvg"/>
+      <dep package="llvm"/>
+      <dep package="pygobject"/>
+      <dep package="vala"/>
+      <dep package="vte"/>
+      <dep package="mm-common"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-dictionary">
+    <branch hash="sha256:efb36377d46eff9291d3b8fec37baab2355f9dc8bc7edb791b6a625574716121" module="gnome-dictionary/3.20/gnome-dictionary-3.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="871916" version="3.20.0"/>
+    <dependencies>
+      <dep package="intltool"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-multi-writer">
+    <branch hash="sha256:71c030dc8398cf3569dfc4c0b70ddb51d19e53d787a2441ec0363cfc8ceccf71" module="gnome-multi-writer/3.23/gnome-multi-writer-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="377948" version="3.23.92"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="libcanberra"/>
+      <dep package="libgusb"/>
+      <dep package="udisks"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-music">
+    <branch hash="sha256:31e350b6a78fb4ae0f2497b5176be6a9d4ecfaf84c395a5d78f664b4b8e562fc" module="gnome-music/3.23/gnome-music-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1555748" version="3.23.92"/>
+    <dependencies>
+      <dep package="gobject-introspection"/>
+      <dep package="grilo"/>
+      <dep package="grilo-plugins"/>
+      <dep package="gtk+-3"/>
+      <dep package="gvfs"/>
+      <dep package="intltool"/>
+      <dep package="pygobject"/>
+      <dep package="tracker"/>
+      <dep package="libmediaart"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-nettool">
+    <branch hash="sha256:f0a4510d9fe5eae4c91b63ade9848992b2795108e76eff7f51dc3decf7df2cb1" module="gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz" repo="https://download.gnome.org/sources/" size="589024" version="3.8.1"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libgtop"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-sound-recorder">
+    <branch hash="sha256:41b2c2dfc6adaef0606627521b29e3063c4abb6213614cc699baa6e5f80ebee2" module="gnome-sound-recorder/3.21/gnome-sound-recorder-3.21.92.tar.xz" repo="https://download.gnome.org/sources/" size="450092" version="3.21.92"/>
+    <dependencies>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="gtk+-3"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-todo">
+    <branch hash="sha256:cb80f64f5edeeac7b221146d2203bd1bebc49d275b7a41e7a5418f409d9c74af" module="gnome-todo/3.22/gnome-todo-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="710940" version="3.22.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gnome-online-accounts"/>
+      <dep package="evolution-data-server"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="libpeas"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-tweak-tool">
+    <branch hash="sha256:3d6ae11e13f6169ee543e573135e1e5697cf92ab8d86570c6f952021ae093abb" module="gnome-tweak-tool/3.22/gnome-tweak-tool-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="260132" version="3.22.0"/>
+    <dependencies>
+      <dep package="gtk+-3"/>
+      <dep package="pygobject"/>
+      <dep package="gsettings-desktop-schemas"/>
+    </dependencies>
+  </autotools>
+  <autotools id="polari">
+    <branch hash="sha256:f84eb19c748dd86447c74d4d5e5b9a18649129430c0334859b31f6977783f755" module="polari/3.23/polari-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="711840" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="gjs"/>
+      <dep package="glib"/>
+      <dep package="gobject-introspection"/>
+      <dep package="gtk+-3"/>
+      <dep package="gspell"/>
+      <dep package="telepathy-glib"/>
+    </dependencies>
+  </autotools>
+  <autotools id="seahorse">
+    <branch hash="sha256:e2b07461ed54a8333e5628e9b8e517ec2b731068377bf376570aad998274c6df" module="seahorse/3.20/seahorse-3.20.0.tar.xz" repo="https://download.gnome.org/sources/" size="1556556" version="3.20.0"/>
+    <dependencies>
+      <dep package="vala"/>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="glib"/>
+      <dep package="libsoup"/>
+      <dep package="libsecret"/>
+      <dep package="gcr"/>
+      <dep package="yelp-tools"/>
+      <dep package="gpgme"/>
+      <dep package="gnupg"/>
+    </dependencies>
+    <suggests>
+      <dep package="avahi"/>
+      <dep package="libxml2"/>
+    </suggests>
+  </autotools>
+  <autotools id="five-or-more">
+    <branch hash="sha256:bacf8e03ad9404623a152900b8545d745d38a2fe0f01208bc7dc882cbd5346ac" module="five-or-more/3.22/five-or-more-3.22.2.tar.xz" repo="https://download.gnome.org/sources/" size="3297904" version="3.22.2"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="libcanberra"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="four-in-a-row">
+    <branch hash="sha256:3ccf65a9da08d8e888fa90a7bf55192bc344981cec3b1f56fa0da70f423137d4" module="four-in-a-row/3.22/four-in-a-row-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="1786220" version="3.22.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="libcanberra"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-chess">
+    <branch hash="sha256:f3cf5a7f02fa23c5707c5498a4768fe3dbddd5208fa6d6f34c0482b46bdc930b" module="gnome-chess/3.23/gnome-chess-3.23.92.5.tar.xz" repo="https://download.gnome.org/sources/" size="2809784" version="3.23.92.5"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-klotski">
+    <branch hash="sha256:7860ab0aa1089a4e4573cd66498685638d58a312f30737456c5e27f1f37e2a13" module="gnome-klotski/3.22/gnome-klotski-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="1420512" version="3.22.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="libgnome-games-support"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-mahjongg">
+    <branch hash="sha256:f5972a14fa4ad04153bd6e68475b85cd79c6b44f6cac1fe1edb64dbad4135218" module="gnome-mahjongg/3.22/gnome-mahjongg-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="4323836" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="librsvg"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-mines">
+    <branch hash="sha256:5253680a098be8455c15edcc1d6b1d50b5c1419498baa79f51db4334e2abacae" module="gnome-mines/3.23/gnome-mines-3.23.91.tar.xz" repo="https://download.gnome.org/sources/" size="3139816" version="3.23.91"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="libgnome-games-support"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-nibbles">
+    <branch hash="sha256:5370caba41cbb6196252294191032a52f4a9b533126c1820bb8c3be8d06f3797" module="gnome-nibbles/3.23/gnome-nibbles-3.23.92.tar.xz" repo="https://download.gnome.org/sources/" size="1614560" version="3.23.92"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gtk"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="libgnome-games-support"/>
+      <dep package="libgee"/>
+      <dep package="librsvg"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-robots">
+    <branch hash="sha256:5cd4564d7eb876fe4ef332dc568bcf7b1515d8ec9f66e53c2bae5331e0182dd4" module="gnome-robots/3.22/gnome-robots-3.22.1.tar.xz" repo="https://download.gnome.org/sources/" size="1622820" version="3.22.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="libgnome-games-support"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="libcanberra"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-sudoku">
+    <branch hash="sha256:692052dcac2809ac2dd2d7e9cf72f1b2c19c9d7204bcb564537ccf36bb830784" module="gnome-sudoku/3.23/gnome-sudoku-3.23.92.1.tar.xz" repo="https://download.gnome.org/sources/" size="2869412" version="3.23.92.1"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="c++"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="json-glib"/>
+      <dep package="libgee"/>
+      <dep package="qqwing"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-taquin">
+    <branch hash="sha256:780af247856b91095a9a2e1a6b425e4e3a78520659e2157eddb421377e8ce982" module="gnome-taquin/3.22/gnome-taquin-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="5030156" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="libcanberra"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="gnome-tetravex">
+    <branch hash="sha256:0a6d7ff5ffcd6c05454a919d46a2e389d6b5f87bc80e82c52c2f20d9d914e18d" module="gnome-tetravex/3.22/gnome-tetravex-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="2170464" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="hitori">
+    <branch hash="sha256:3d4c11efaf55885d30cf05b9717dcf2d86e437f23ff423f9f55a4b3abe398341" module="hitori/3.22/hitori-3.22.2.tar.xz" repo="https://download.gnome.org/sources/" size="460452" version="3.22.2"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="cairo"/>
+      <dep package="glib"/>
+      <dep package="gtk+-3"/>
+      <dep package="intltool"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="iagno">
+    <branch hash="sha256:e7070c55f1f74cd9345388ee120f0e6cc47392868c2601664c26a0fa2672fe13" module="iagno/3.22/iagno-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1815048" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="libcanberra"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="lightsoff">
+    <branch hash="sha256:22dc3367ca196ce775a419d38056e7f6a94950d0daa8c8162a1dcdd0ff708288" module="lightsoff/3.23/lightsoff-3.23.2.tar.xz" repo="https://download.gnome.org/sources/" size="1929808" version="3.23.2"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="vala"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gtk"/>
+      <dep package="yelp-tools"/>
+      <dep package="librsvg"/>
+    </dependencies>
+  </autotools>
+  <autotools id="quadrapassel">
+    <branch hash="sha256:0ed44ef73c8811cbdfc3b44c8fd80eb6e2998d102d59ac324e4748f5d9dddb55" module="quadrapassel/3.22/quadrapassel-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1737252" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="librsvg"/>
+      <dep package="libcanberra"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gtk"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="swell-foop">
+    <branch hash="sha256:6645c61fd4976dc0762754d64494957793c0c3c8b7db095b9fe36c49c76596ad" module="swell-foop/3.23/swell-foop-3.23.2.tar.xz" repo="https://download.gnome.org/sources/" size="2294032" version="3.23.2"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="gtk+-3"/>
+      <dep package="clutter"/>
+      <dep package="clutter-gtk"/>
+      <dep package="vala"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <autotools id="tali">
+    <branch hash="sha256:5ba17794d6fb06b794daaffa62a6aaa372b7de8886ce5ec596c37e62bb71728b" module="tali/3.22/tali-3.22.0.tar.xz" repo="https://download.gnome.org/sources/" size="1716728" version="3.22.0"/>
+    <dependencies>
+      <dep package="appstream-glib"/>
+      <dep package="intltool"/>
+      <dep package="librsvg"/>
+      <dep package="gtk+-3"/>
+      <dep package="yelp-tools"/>
+    </dependencies>
+  </autotools>
+  <metamodule id="meta-gnome-apps-tested">
+    <dependencies>
+      <dep package="meta-gnome-core-incubator"/>
+      <dep package="meta-gnome-games"/>
+      <dep package="accerciser"/>
+      <dep package="dconf-editor"/>
+      <dep package="devhelp"/>
+      <dep package="evolution"/>
+      <dep package="ghex"/>
+      <dep package="gitg"/>
+      <dep package="glade"/>
+      <dep package="gnome-builder"/>
+      <dep package="gnome-devel-docs"/>
+      <dep package="gnome-nettool"/>
+      <dep package="gnome-sound-recorder"/>
+      <dep package="gnome-todo"/>
+      <dep package="gnome-tweak-tool"/>
+      <dep package="nautilus-sendto"/>
+      <dep package="polari"/>
+      <if condition-set="linux">
+        <dep package="gnome-multi-writer"/>
+      </if>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-core-incubator">
+    <dependencies>
+      <dep package="gnome-dictionary"/>
+      <dep package="gnome-music"/>
+      <dep package="seahorse"/>
+    </dependencies>
+  </metamodule>
+  <metamodule id="meta-gnome-games">
+    <dependencies>
+      <dep package="five-or-more"/>
+      <dep package="four-in-a-row"/>
+      <dep package="gnome-chess"/>
+      <dep package="gnome-klotski"/>
+      <dep package="gnome-mahjongg"/>
+      <dep package="gnome-mines"/>
+      <dep package="gnome-nibbles"/>
+      <dep package="gnome-robots"/>
+      <dep package="gnome-sudoku"/>
+      <dep package="gnome-taquin"/>
+      <dep package="gnome-tetravex"/>
+      <dep package="hitori"/>
+      <dep package="iagno"/>
+      <dep package="lightsoff"/>
+      <dep package="quadrapassel"/>
+      <dep package="swell-foop"/>
+      <dep package="tali"/>
+    </dependencies>
+  </metamodule>
+  <repository href="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" name="http://people.freedesktop.org/~hughsient/appstream-glib/releases/" type="tarball"/>
+  <repository href="https://download.gnome.org/sources/" name="https://download.gnome.org/sources/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/babl/" name="http://ftp.gimp.org/pub/babl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/colord/releases/" name="http://www.freedesktop.org/software/colord/releases/" type="tarball"/>
+  <repository href="http://people.freedesktop.org/~hughsient/releases/" name="http://people.freedesktop.org/~hughsient/releases/" type="tarball"/>
+  <repository href="http://ftp.gimp.org/pub/gegl/" name="http://ftp.gimp.org/pub/gegl/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/geoclue/releases/2.4/" name="http://www.freedesktop.org/software/geoclue/releases/2.4/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gstreamer/" name="http://gstreamer.freedesktop.org/src/gstreamer/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" name="http://gstreamer.freedesktop.org/src/gst-plugins-bad/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-base/" name="http://gstreamer.freedesktop.org/src/gst-plugins-base/" type="tarball"/>
+  <repository href="http://gstreamer.freedesktop.org/src/gst-plugins-good/" name="http://gstreamer.freedesktop.org/src/gst-plugins-good/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/harfbuzz/release/" name="http://www.freedesktop.org/software/harfbuzz/release/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libinput/" name="http://www.freedesktop.org/software/libinput/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libmbim/" name="http://www.freedesktop.org/software/libmbim/" type="tarball"/>
+  <repository href="https://releases.pagure.org/libosinfo/" name="https://releases.pagure.org/libosinfo/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/libqmi/" name="http://www.freedesktop.org/software/libqmi/" type="tarball"/>
+  <repository href="ftp://libvirt.org/libvirt/glib/" name="ftp://libvirt.org/libvirt/glib/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/ModemManager/" name="http://www.freedesktop.org/software/ModemManager/" type="tarball"/>
+  <repository href="http://telepathy.freedesktop.org/releases/" name="http://telepathy.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://tecnocode.co.uk/downloads/uhttpmock/" name="http://tecnocode.co.uk/downloads/uhttpmock/" type="tarball"/>
+  <repository href="http://wayland.freedesktop.org/releases/" name="http://wayland.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/accountsservice/" name="http://www.freedesktop.org/software/accountsservice/" type="tarball"/>
+  <repository href="http://www.freedesktop.org/software/PackageKit/releases/" name="http://www.freedesktop.org/software/PackageKit/releases/" type="tarball"/>
+  <repository href="http://udisks.freedesktop.org/releases/" name="http://udisks.freedesktop.org/releases/" type="tarball"/>
+  <repository href="http://upower.freedesktop.org/releases/" name="http://upower.freedesktop.org/releases/" type="tarball"/>
+</moduleset>

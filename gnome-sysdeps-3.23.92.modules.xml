@@ -1,0 +1,973 @@
+<?xml version="1.0" ?>
+<moduleset>
+  <repository name="system" type="system"/>
+  <systemmodule id="alsa">
+    <pkg-config/>
+    <branch repo="system" version="1.0.19"/>
+  </systemmodule>
+  <systemmodule id="anthy">
+    <pkg-config/>
+    <branch repo="system" version="9100h"/>
+  </systemmodule>
+  <systemmodule id="argyll">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="spotread" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="avahi">
+    <pkg-config/>
+    <branch repo="system" version="0.6.31"/>
+  </systemmodule>
+  <systemmodule id="bison">
+    <branch repo="system" version="2.4"/>
+    <systemdependencies>
+      <dep name="bison" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="bluez">
+    <pkg-config/>
+    <branch repo="system" version="5.40"/>
+  </systemmodule>
+  <systemmodule id="bogofilter">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="bogofilter" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="boost">
+    <branch repo="system" version="1.33.1"/>
+    <systemdependencies>
+      <dep name="boost/variant.hpp" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="cairo">
+    <pkg-config/>
+    <branch repo="system" version="1.14.0"/>
+  </systemmodule>
+  <systemmodule id="caribou">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="c++">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="c++" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="cc">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="cc" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="clang">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="llvm-config" type="path">
+        <altdep name="llvm-config-3.9" type="path"/>
+        <altdep name="llvm-config-3.8" type="path"/>
+        <altdep name="llvm-config-3.7" type="path"/>
+        <altdep name="llvm-config-3.6" type="path"/>
+        <altdep name="llvm-config-3.5" type="path"/>
+        <altdep name="llvm-config-3.4" type="path"/>
+        <altdep name="llvm-config39" type="path"/>
+        <altdep name="llvm-config38" type="path"/>
+        <altdep name="llvm-config37" type="path"/>
+        <altdep name="llvm-config36" type="path"/>
+        <altdep name="llvm-config35" type="path"/>
+        <altdep name="llvm-config34" type="path"/>
+        <altdep name="llvm-config-devel" type="path"/>
+      </dep>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="cups">
+    <branch repo="system" version="1.4"/>
+    <systemdependencies>
+      <dep name="cups-config" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="cyrus-sasl">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="sasl/sasl.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="dbus">
+    <pkg-config/>
+    <branch repo="system" version="1.4.10"/>
+  </systemmodule>
+  <systemmodule id="dbus-glib">
+    <pkg-config/>
+    <branch repo="system" version="0.98"/>
+  </systemmodule>
+  <systemmodule id="desktop-file-utils">
+    <branch repo="system" version="0.20"/>
+    <systemdependencies>
+      <dep name="desktop-file-validate" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="device-mapper">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="libdevmapper.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="docbook-utils">
+    <branch repo="system" version="0.6.14"/>
+    <systemdependencies>
+      <dep name="docbook2man" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="docbook-xml">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="-//OASIS//DTD DocBook XML V4.3//EN" type="xml"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="docbook-xsl">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="http://docbook.sourceforge.net/release/xsl/current/" type="xml"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="dotconf">
+    <pkg-config/>
+    <branch repo="system" version="1.3"/>
+  </systemmodule>
+  <systemmodule id="doxygen">
+    <branch repo="system" version="1.8.1"/>
+    <systemdependencies>
+      <dep name="doxygen" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="dvdread">
+    <pkg-config/>
+    <branch repo="system" version="4.2.0"/>
+  </systemmodule>
+  <systemmodule id="enchant">
+    <pkg-config/>
+    <branch repo="system" version="1.6.0"/>
+  </systemmodule>
+  <systemmodule id="espeak">
+    <branch repo="system" version="1.46.02"/>
+    <systemdependencies>
+      <dep name="espeak/speak_lib.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="exempi">
+    <pkg-config/>
+    <branch repo="system" version="2.2.0"/>
+  </systemmodule>
+  <systemmodule id="exiv2">
+    <pkg-config/>
+    <branch repo="system" version="0"/>
+  </systemmodule>
+  <systemmodule id="expat">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="expat.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="file">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="magic.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="flac">
+    <pkg-config/>
+    <branch repo="system" version="1.1.4"/>
+  </systemmodule>
+  <systemmodule id="flex">
+    <branch repo="system" version="2.0"/>
+    <systemdependencies>
+      <dep name="flex" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="fontconfig">
+    <pkg-config/>
+    <branch repo="system" version="2.11.0"/>
+  </systemmodule>
+  <systemmodule id="freetype2">
+    <pkg-config/>
+    <branch repo="system" version="2.4.9"/>
+  </systemmodule>
+  <systemmodule id="gbm">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="gc">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="gc-threaded">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="gdb">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="gdb" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="gettext-bin">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="msgfmt" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="gexiv2">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="gl">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="glu">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="gmime">
+    <pkg-config/>
+    <branch repo="system" version="2.6.6"/>
+  </systemmodule>
+  <systemmodule id="gnutls">
+    <pkg-config/>
+    <branch repo="system" version="3.1"/>
+  </systemmodule>
+  <systemmodule id="gpgme">
+    <branch repo="system" version="1.0.0"/>
+    <systemdependencies>
+      <dep name="gpgme-config" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="gnupg">
+    <branch repo="system" version="1.4"/>
+    <systemdependencies>
+      <dep name="gpg" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="gperf">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="gperf" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="graphviz">
+    <pkg-config/>
+    <branch repo="system" version="2.26.0"/>
+  </systemmodule>
+  <systemmodule id="gudev">
+    <pkg-config/>
+    <branch repo="system" version="173"/>
+  </systemmodule>
+  <systemmodule id="highlight">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="highlight" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="hogweed">
+    <pkg-config/>
+    <branch repo="system" version="3.2"/>
+  </systemmodule>
+  <systemmodule id="hyphen">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="hyphen.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="intltool">
+    <branch repo="system" version="0.50.2"/>
+    <systemdependencies>
+      <dep name="intltoolize" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="iptables">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="iptables" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="itstool">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="itstool" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="json">
+    <pkg-config/>
+    <branch repo="system" version="0.11"/>
+  </systemmodule>
+  <systemmodule id="krb5">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="krb5.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="kyotocabinet">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="lcms2">
+    <pkg-config/>
+    <branch repo="system" version="2.6"/>
+  </systemmodule>
+  <systemmodule id="lcov">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="lcov" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libarchive">
+    <pkg-config/>
+    <branch repo="system" version="3.2.1"/>
+  </systemmodule>
+  <systemmodule id="libatasmart">
+    <pkg-config/>
+    <branch repo="system" version="0.17"/>
+  </systemmodule>
+  <systemmodule id="libcanberra">
+    <pkg-config/>
+    <branch repo="system" version="0.30"/>
+  </systemmodule>
+  <systemmodule id="libcanberra-gtk3">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libdmapsharing">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libelf">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libhangul">
+    <pkg-config/>
+    <branch repo="system" version="0.1.0"/>
+  </systemmodule>
+  <systemmodule id="libical">
+    <pkg-config/>
+    <branch repo="system" version="1.0"/>
+  </systemmodule>
+  <systemmodule id="libmusicbrainz">
+    <pkg-config/>
+    <branch repo="system" version="5.0"/>
+  </systemmodule>
+  <systemmodule id="libtool">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="libtoolize" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libX11">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXi">
+    <pkg-config/>
+    <branch repo="system" version="1.7.4"/>
+  </systemmodule>
+  <systemmodule id="libXdamage">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXext">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXcomposite">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXcursor">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXfixes">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXft">
+    <pkg-config/>
+    <branch repo="system" version="2.0.0"/>
+  </systemmodule>
+  <systemmodule id="libXinerama">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="X11/extensions/Xinerama.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libXrandr">
+    <pkg-config/>
+    <branch repo="system" version="1.3"/>
+  </systemmodule>
+  <systemmodule id="libXrender">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXt">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libXtst">
+    <pkg-config/>
+    <branch repo="system" version="1"/>
+  </systemmodule>
+  <systemmodule id="libXv">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="xorg-macros">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="xorg-kbproto">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libacl">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="sys/acl.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libcap">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="sys/capability.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libdb">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="db.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libdrm">
+    <pkg-config/>
+    <branch repo="system" version="2.4.45"/>
+  </systemmodule>
+  <systemmodule id="libepoxy">
+    <pkg-config/>
+    <branch repo="system" version="1.2"/>
+  </systemmodule>
+  <systemmodule id="libevdev">
+    <pkg-config/>
+    <branch repo="system" version="1.2.2"/>
+  </systemmodule>
+  <systemmodule id="libexif">
+    <pkg-config/>
+    <branch repo="system" version="0.6.19"/>
+  </systemmodule>
+  <systemmodule id="libffi">
+    <pkg-config/>
+    <branch repo="system" version="3.0.0"/>
+  </systemmodule>
+  <systemmodule id="libpcre">
+    <pkg-config/>
+    <branch repo="system" version="8.31"/>
+  </systemmodule>
+  <systemmodule id="libgcrypt">
+    <branch repo="system" version="1.5.0"/>
+    <systemdependencies>
+      <dep name="gcrypt.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libgphoto2">
+    <pkg-config/>
+    <branch repo="system" version="2.4.13"/>
+  </systemmodule>
+  <systemmodule id="libicu">
+    <pkg-config/>
+    <branch repo="system" version="4"/>
+  </systemmodule>
+  <systemmodule id="libjpeg">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="jpeglib.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libndp">
+    <pkg-config/>
+    <branch repo="system" version="1.4"/>
+  </systemmodule>
+  <systemmodule id="libnl">
+    <pkg-config/>
+    <branch repo="system" version="3.2.7"/>
+  </systemmodule>
+  <systemmodule id="libnl-genl">
+    <pkg-config/>
+    <branch repo="system" version="3.2.7"/>
+  </systemmodule>
+  <systemmodule id="libnl-route">
+    <pkg-config/>
+    <branch repo="system" version="3.2.7"/>
+  </systemmodule>
+  <systemmodule id="liboauth">
+    <pkg-config/>
+    <branch repo="system" version="0.9.4"/>
+  </systemmodule>
+  <systemmodule id="libpng">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libproxy">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libpwquality">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libraw">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libseccomp">
+    <pkg-config/>
+    <branch repo="system" version="2.0"/>
+  </systemmodule>
+  <systemmodule id="libsndfile">
+    <pkg-config/>
+    <branch repo="system" version="1.0.21"/>
+  </systemmodule>
+  <systemmodule id="libssh2">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libsystemd">
+    <pkg-config/>
+    <branch repo="system" version="210"/>
+  </systemmodule>
+  <systemmodule id="libtasn1">
+    <pkg-config/>
+    <branch repo="system" version="2.7"/>
+  </systemmodule>
+  <systemmodule id="libtiff">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="tiff.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libtool-ltdl">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="ltdl.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libudev">
+    <pkg-config/>
+    <branch repo="system" version="143"/>
+  </systemmodule>
+  <systemmodule id="libunistring">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="unistring/version.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libusb1">
+    <pkg-config/>
+    <branch repo="system" version="1.0.19"/>
+  </systemmodule>
+  <systemmodule id="libusb1-1.0.9">
+    <pkg-config/>
+    <branch repo="system" version="1.0.9"/>
+  </systemmodule>
+  <systemmodule id="libuuid">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libv4l">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libvirt">
+    <pkg-config/>
+    <branch repo="system" version="1.0.6"/>
+  </systemmodule>
+  <systemmodule id="libvorbis">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libvpx">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libxkbfile">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="libxklavier">
+    <pkg-config/>
+    <branch repo="system" version="5.0"/>
+  </systemmodule>
+  <systemmodule id="libxml2">
+    <pkg-config/>
+    <branch repo="system" version="2.7.8"/>
+  </systemmodule>
+  <systemmodule id="libxslt">
+    <pkg-config/>
+    <branch repo="system" version="1.1.26"/>
+  </systemmodule>
+  <systemmodule id="libyaml">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="yaml.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="libwebp">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="webp/decode.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="llvm">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="llvm-c/Core.h" type="c_include">
+        <altdep name="llvm-c-4.0/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.9/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.8/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.7/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.6/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.5/llvm-c/Core.h" type="c_include"/>
+        <altdep name="llvm-c-3.4/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm39/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm38/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm37/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm36/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm35/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm34/include/llvm-c/Core.h" type="c_include"/>
+        <altdep name="../llvm-devel/include/llvm-c/Core.h" type="c_include"/>
+      </dep>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="mesa-libGLES">
+    <pkg-config/>
+    <branch repo="system" version="9.2"/>
+  </systemmodule>
+  <systemmodule id="mpc">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="mpc.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="mpfr">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="mpfr.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="nettle">
+    <pkg-config/>
+    <branch repo="system" version="3.2"/>
+  </systemmodule>
+  <systemmodule id="ninja">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="ninja" type="path">
+        <altdep name="ninja-build" type="path"/>
+      </dep>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="nss">
+    <pkg-config/>
+    <branch repo="system" version="3.12.11"/>
+  </systemmodule>
+  <systemmodule id="nspr">
+    <pkg-config/>
+    <branch repo="system" version="4.9.2"/>
+  </systemmodule>
+  <systemmodule id="mtdev">
+    <pkg-config/>
+    <branch repo="system" version="1.1.1"/>
+  </systemmodule>
+  <systemmodule id="openldap">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="ldap.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="openssl">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="p11-kit">
+    <pkg-config/>
+    <branch repo="system" version="0.19.0"/>
+  </systemmodule>
+  <systemmodule id="pam">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="security/pam_appl.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="pixman">
+    <pkg-config/>
+    <branch repo="system" version="0.30"/>
+  </systemmodule>
+  <systemmodule id="pkg-config">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="pkg-config" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="plymouth">
+    <pkg-config/>
+    <branch repo="system" version="0.8.9"/>
+  </systemmodule>
+  <systemmodule id="polkit-agent">
+    <pkg-config/>
+    <branch repo="system" version="0.102"/>
+  </systemmodule>
+  <systemmodule id="polkit-gobject">
+    <pkg-config/>
+    <branch repo="system" version="0.103"/>
+  </systemmodule>
+  <systemmodule id="poppler">
+    <pkg-config/>
+    <branch repo="system" version="0.24.0"/>
+  </systemmodule>
+  <systemmodule id="ppp">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="pppd/pppd.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="pulseaudio">
+    <pkg-config/>
+    <branch repo="system" version="2.0"/>
+  </systemmodule>
+  <systemmodule id="py3cairo">
+    <pkg-config/>
+    <branch repo="system" version="1.10.0"/>
+  </systemmodule>
+  <systemmodule id="python2">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="python2" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="python2-devel">
+    <pkg-config/>
+    <branch repo="system" version="2.7"/>
+  </systemmodule>
+  <systemmodule id="python3-devel">
+    <pkg-config/>
+    <branch repo="system" version="3.2"/>
+  </systemmodule>
+  <systemmodule id="ragel">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="ragel" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="rapper">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="rapper" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="rdflib">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="rdflib" type="python2"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="readline">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="readline/readline.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="ruby">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="ruby" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="sbc">
+    <pkg-config/>
+    <branch repo="system" version="1.1"/>
+  </systemmodule>
+  <systemmodule id="shared-mime-info">
+    <pkg-config/>
+    <branch repo="system" version="1.0"/>
+  </systemmodule>
+  <systemmodule id="sm">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="smbclient">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="spamassassin">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="spamassassin" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="sqlite3">
+    <pkg-config/>
+    <branch repo="system" version="3.7.3"/>
+  </systemmodule>
+  <systemmodule id="startup-notification">
+    <pkg-config/>
+    <branch repo="system" version="0.12"/>
+  </systemmodule>
+  <systemmodule id="taglib">
+    <pkg-config/>
+    <branch repo="system" version="1.5"/>
+  </systemmodule>
+  <systemmodule id="texinfo">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="makeinfo" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="wavpack">
+    <pkg-config/>
+    <branch repo="system" version="4.2"/>
+  </systemmodule>
+  <systemmodule id="wayland-egl">
+    <pkg-config/>
+    <branch repo="system" version="1.0"/>
+  </systemmodule>
+  <systemmodule id="wget">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="wget" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="wireless-tools">
+    <branch repo="system" version="25"/>
+    <systemdependencies>
+      <dep name="wireless.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xcb">
+    <pkg-config/>
+    <branch repo="system" version="1.10"/>
+  </systemmodule>
+  <systemmodule id="xcb-dri2">
+    <pkg-config/>
+    <branch repo="system" version="1.8.1"/>
+  </systemmodule>
+  <systemmodule id="xcb-randr">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="xcb-res">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="xcb-util">
+    <pkg-config/>
+    <branch repo="system" version="0.1"/>
+  </systemmodule>
+  <systemmodule id="xcb-xkb">
+    <pkg-config/>
+    <branch repo="system" version="1.10"/>
+  </systemmodule>
+  <systemmodule id="xkeyboard-config">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="xorg-wacom">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="yasm">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="yasm" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="zlib">
+    <pkg-config/>
+    <branch repo="system" version="1.2"/>
+  </systemmodule>
+  <systemmodule id="gtkspell-3">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+  <systemmodule id="opus">
+    <pkg-config/>
+    <branch repo="system" version="1.0"/>
+  </systemmodule>
+  <systemmodule id="google-glog">
+    <branch repo="system" version="0.3.3"/>
+    <systemdependencies>
+      <dep name="glog/logging.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="google-gflags">
+    <branch repo="system" version="1.3.8"/>
+    <systemdependencies>
+      <dep name="gflags/gflags.h" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="protobuf">
+    <pkg-config/>
+    <branch repo="system" version="2.5.0"/>
+  </systemmodule>
+  <systemmodule id="egl">
+    <pkg-config/>
+    <branch repo="system" version="10.1.3"/>
+  </systemmodule>
+  <systemmodule id="glm">
+    <branch repo="system" version="0.9.4.6"/>
+    <systemdependencies>
+      <dep name="glm/glm.hpp" type="c_include"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="lttng-ust">
+    <pkg-config/>
+    <branch repo="system" version="2.3.0"/>
+  </systemmodule>
+  <systemmodule id="vala-bootstrap">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="valac" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xmlcatalog">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="xmlcatalog" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xmllint">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="xmllint" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xmlto">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="xmlto" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xsltproc">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="xsltproc" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="xwayland">
+    <branch repo="system"/>
+    <systemdependencies>
+      <dep name="Xwayland" type="path"/>
+    </systemdependencies>
+  </systemmodule>
+  <systemmodule id="zlib">
+    <pkg-config/>
+    <branch repo="system"/>
+  </systemmodule>
+</moduleset>

@@ -1,0 +1,343 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%deffont "sans" xfont "Bitstream Vera Sans"
+%deffont "sansbold" xfont "Bitstream Vera Sans Bold"
+%deffont "serif" xfont "Georgia"
+%deffont "serifbold" xfont "Georgia Bold"
+%deffont "mono" xfont "Bitstream Vera Mono"
+%%
+%% Default settings per each line numbers.
+%%
+%default 1 leftfill, size 2, fore "white", back "black", font "sansbold"
+#%default 1 bimage "bg-normal.jpg" 800x600
+%default 2 size 7, vgap 20, prefix " "
+%default 3 size 6, fore "white", vgap 20, prefix " ", font "sans"
+%%
+%% Default settings that are applied to TAB-indented lines.
+%%
+%tab 1 size 5, vgap 20, prefix "    ", icon arc "tomato" 40
+%tab 2 size 5, vgap 20, prefix "        ", icon box "spring green" 40
+%tab 3 size 4, vgap 20, prefix "            ", icon delta3 "white" 40 
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 7, font "sansbold", fore "white", back "black"
+%center
+
+In Memoriam
+
+
+%image "dudes.jpg"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 8, font "sansbold", fore "white", back "black"
+%center
+
+%image "gnome-logo-text-194.png"
+
+To The Teeth:
+Arming GNOME For
+Desktop Success
+
+%size 5
+linux.conf.au, January 2004
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Preparing for success
+
+	Make sure you have no visible leadership
+
+	A moving target is more exciting
+
+	FAT WADS OF CASH make everyone happy
+
+	Triple the size of your team
+
+	Bring in some mercenaries - hackers for hire
+
+	Find a scapegoat: SUCKER #1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 12, font "sansbold", fore "white", back "black"
+%center
+
+
+How did we
+do it?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Social Structure: Technical
+
+	Module maintainers and contributors
+
+	Sub-projects and contributors
+			Documentation
+			Accessibility
+			Bugsquad
+			Usability
+			Internationalisation
+
+	Release Team
+
+	Distributors and users
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Social Structure: Administrative
+
+	Foundation Board
+			Marketing
+			Funds management
+			Conference organisation
+
+	Advisory Board
+
+	Contributing companies
+
+	Distributors and users
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+"Product" Structure
+
+	Divide and Conquer!
+
+	'Foundation' Libraries
+			Free Desktop stack
+			Glib, Pango, ATK, GTK+, libxml2
+
+	Developer Platform
+			libgnome, gnome-vfs, GConf
+
+	Desktop
+			Panel, Text Editor, File Manager, Web Browser
+
+	And soon, many more!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 12, font "sansbold", fore "white", back "black"
+%center
+
+ANARCHY
+
+AIM
+
+FIRE!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Anarchy, Aim, Fire!
+
+	Stay as open as possible to contributions and new ideas
+
+	Sieve out and lock down a set of deliverables
+		Defer the rest - some go away, some return stronger
+		Make your bets early - more time for clever saves
+
+	Work like hell and DELIVER
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Anarchy, Aim, Fire: Macro Example
+
+	GNOME's time-based release process
+
+	General process suggested by Havoc, causing yet another project-wide flamewar
+
+%center
+%image "release-roadmap.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Anarchy, Aim, Fire: Macro Example
+
+	2.0: Negotiation period
+
+	2.2: Five months, to the day
+
+	2.4: Six months, to the day
+
+	2.6: On course for six months, to the day
+
+	Next year, if I have anything interesting to say at all, we at least know there'll be two GNOME releases out the door
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Anarchy, Aim, Fire: Micro Example
+
+	We've committed to API/ABI compatibility across the 2.x series
+
+	No more "lamp" and "gauge" widget mistakes...
+
+	libegg cut'n'paste library successes:
+		Epiphany and the new actions-based menu/toolbar API
+		Totem and the "Bacon" video widget
+		Desktop and recently-used files
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 12, font "sansbold", fore "white", back "black"
+%center
+
+WE WILL
+
+WE WILL
+
+ROCK YOU
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+The Free Desktop Stack
+
+	Cairo
+
+	XCB (X C Binding), XCL (Xlib Compatibility Layer)
+
+	Keith's new X hackery
+
+	Project Utopia
+		udev, HAL, D-BUS and...
+		... everything that can go on top!
+		NO ugly polling or FAM or crap like that!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+The Free Desktop Stack
+
+%center
+%image "gnome-volume-capplet.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Evolution Dataserver
+
+	C and CORBA/Bonobo APIs
+
+	Provides read-write, real-time access to calendar and contacts data
+
+	Should be in the Desktop release for 2.6, and the Developer Platform for 2.8
+
+	Projects working with it:
+		Ross Burton's lookup applet
+		Integration: Gaim, Evolution, Planner
+		An lbdb backend for all you mutt fans
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Dashboard & Galago
+
+	Prototype association engine and interface
+
+	Yeah, yeah, Emacs had this first (the Inference Engine)
+
+	Sources information via plugins
+
+	Responds to input from other applications
+
+	Christian Hammond (of Gaim fame) is now working on a D-BUS infrastructure for Dashboard-like functionality, called Galago
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Dashboard & Galago
+%center
+%image "dashboard.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+
+	Designed by Seth Nickell to "replace the traditional filesystem with a new document store".
+
+	Is it like WinFS?
+		Different approach to WinFS in terms of storage
+		Seth mainly focused on natural language aspects
+
+	Prototype implementation of backend and frontends...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+%center
+%image "gargamel1.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+%center
+%image "gargamel2.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+%center
+%image "gargamel3.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+%center
+%image "gargamel4.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Storage
+%center
+%image "gargamel5.png"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Collaboration Station
+
+	Contacts & Calendar
+
+	Association & Context
+
+	Projects & Presence
+
+	Manageable data and metadata
+
+	Network transparency
+
+	What happens when all of these are part of the desktop environment?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 12, font "sansbold", fore "white", back "black"
+%center
+
+WE WILL
+
+WE WILL
+
+ROCK YOU

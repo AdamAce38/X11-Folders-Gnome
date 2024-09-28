@@ -1,0 +1,58 @@
+@import url('slides.css');
+
+.toclink { font-size: 10pt;
+             font-weight: normal;
+           }
+
+.toclink a         { color: blue; }
+.toclink a:link    { color: blue; }
+.toclink a:visited { color: blue; }
+div.mediaobject {text-align: center; }
+
+.navhead {
+   background-image: url("graphics/header.png");
+   padding: 10px;
+}
+
+.navfoot {
+   background-image: url("graphics/footer.png");
+   padding: 10px;
+}
+
+.foil {
+   margin: 0;
+   padding: 0;
+}
+
+.foil pre {
+   font-size: 12pt;
+}
+
+.blockquote {
+   font-size: 16pt;
+   background: #e3f6fd;
+}
+
+.titlepage {
+   margin: 0;
+}
+
+.navfoot table {
+   margin: 0;
+}
+
+.foil-body table {
+  background: inherit;
+  margin: auto;
+}
+
+.foil-body td {
+  padding: 1em;
+}
+
+li table {
+  display: inline-table;
+  border: 1px solid black;
+  vertical-align: text-top;
+}
+
