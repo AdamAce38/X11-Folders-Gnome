@@ -1,0 +1,81 @@
+My Win32 builds of GNOME software that need a POSIX regular expression
+(regex) library were until now (December 2006) built against Henry
+Spencer's regex library. More specifically, a Win32 build of it as
+distributed by the gnuwin32 project (see
+http://gnuwin32.sourceforge.net/packages.html).
+
+Unfortunately there has been a fatal confusion in the name of the DLLs
+of the Spencer and GNU regex libraries. In the gnuwin32 version "3.8"
+of the Spencer regex library, the DLL was called "regex.dll". This
+version can be found at
+http://prdownloads.sourceforge.net/gnuwin32/regex-spencer-3.8-bin.zip
+and
+http://prdownloads.sourceforge.net/gnuwin32/regex-spencer-3.8-lib.zip
+and is what I used.
+
+In the current gnuwin32 version of Spencer regex, "3.8.g.3", the DLL
+is called "rxspencer.dll". (It presumably still offers the same API
+and ABI as the "3.8" regex.dll, though. But in this case the rename is
+a good thing. Read on.)
+
+Now comes the catch: the name "regex.dll" is also (situation in
+December 2006, at least) used by the gnuwin32 distribution of the GNU
+regex library version 0.12. (This is as such a quite old version of
+GNU regex, built from sources from 1993. The GNU regex sources were
+subsequently merged into glibc, and no separate official distributions
+of GNU regex source have been made since.)
+
+This clash is horrendous, as these two regex libraries are not at all
+binary compatible, but this is hard to notice, as they provide the
+same POSIX regex functions as entry points.
+
+For starters, the regex_t struct type is larger in the GNU regex
+library than in the Spencer regex library. Also, some constants
+defined in the regex.h header like REG_NEWLINE and REG_NOSUB have
+different value in the two implementations. (Both naturally provide a
+regex.h file, as they should, that is not a problem as such.)
+
+My earlier Win32 builds were against gnuwin32's "3.8" builds of
+Spencer regex, and thus the binaries who use it link to regex.dll,
+which should be the Spencer regex DLL. If one instead uses the
+regex.dll from gnuwin32's GNU regex 0.12 package, one will hopefully
+get a crash, or in the worst case, silent data corruption.
+
+It is very possible and likely even that somebody who downloads my
+gtkhtml 3.12.0 build, for instance, notices that it requires something
+called "regex.dll", and then assumes this is the gnuwin32 build of GNU
+regex. He downloads that, notices that yes indeed, there is regex.dll,
+and it contains the required entry points.
+
+So let's use gnuwin32's 3.8.g.3 build of Spencer regex then? That
+seemed like a good idea, until I noticed that it is horribly
+broken. It has been built with an nonstandard addon to the mingw
+environment that redefines the off_t type as long long. The regoff_t
+type in Spencer's regex.h is typedeffed as off_t. Horror! This means
+that the rxspencer.dll thinks a regmatch_t is two long longs, while
+user code built in a normal mingw environment thinks it's two
+longs. Thus the 3.8.g.3 build is not usable either.
+
+Since December 2006 I will do my Win32 builds of GNOME software
+against an own build of the regex part from a fresh glibc, that
+provides a DLL called libgnurx-0.dll. I package this as "libgnurx" (a
+name I just came up with myself). This should hopefully avoid any
+confusion.
+
+So, what to learn from this: If you build and distribute Win32
+binaries, don't forget this simple rule: Never, ever, use the same
+name for two incompatible DLLs.
+
+Note that *adding* API to a library (which is something quite normal
+and common to do as a library evolves) does not make it
+incompatible. Deleting API or otherwise changing the ABI does. Always
+change the name of the DLL when it grows incompatible with earlier
+versions.
+
+Another important lesson: Don't use "secret sauce" additions to a
+standard build environment (like mingw) that change the definition of
+standard types like off_t. This can cause a library you build and
+distribute to be binary incompatible with client code built without
+the "secret sauce".
+
+--Tor Lillqvist <tml@novell.com>, <tml@iki.fi>
